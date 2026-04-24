@@ -1,16 +1,22 @@
-# {{date}}
+# 📅 {{DATE}}
+Tagi: #daily
 
-## 🎯 Focus for Today
+## 🎯 Cel Główny na Dziś
 - [ ] 
 
-## 📓 Log
+## 🧠 Brain Dump (Zrzut Myśli)
+> Wrzuć tu wszystko, co masz w głowie, zanim ucieknie.
+
+## 🛠️ Wykonane Zadania
+- [x] Automatyczne podsumowanie przez vault-gpt 🤍
+
+## 💡 Czego się dziś nauczyłem / Co mnie zaskoczyło?
 - 
 
-## 🛠️ Tech Learned/Discovered
-- 
+## 🎭 Vibe Check
+- **Nastrój**: 
+- **Zwycięstwo dnia**: 
 
-## 🔗 Links & References
-- 
+---
 
-## 🧠 Brain Dump / Notes
-- 
+[[SYSTEM]]

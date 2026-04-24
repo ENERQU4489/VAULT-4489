@@ -1,0 +1,32 @@
+# --- Obsidian ---
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/plugins/obsidian-git/
+
+# --- System & OS ---
+.DS_Store
+Thumbs.db
+*.log
+
+# --- WikiSfera (Dane i wyniki) ---
+20 Projects/WikiSfera/data/
+20 Projects/WikiSfera/output/map_data.json
+20 Projects/WikiSfera/output/*.html
+
+# --- Inne duże projekty / Śmieci ---
+**/node_modules/
+**/__pycache__/
+**/.venv/
+**/venv/
+*.exe
+*.zip
+*.gz
+*.db
+*.sql
+
+# --- Bezpieczeństwo ---
+.env
+secrets.json
+*.key
+*.pem

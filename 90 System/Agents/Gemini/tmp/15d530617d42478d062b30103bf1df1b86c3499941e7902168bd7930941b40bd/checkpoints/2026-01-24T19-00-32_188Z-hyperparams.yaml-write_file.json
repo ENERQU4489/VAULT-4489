@@ -1,0 +1,306 @@
+{
+  "clientHistory": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "This is the Gemini CLI. We are setting up the context for our chat.\nToday's date is Saturday 24 January 2026 (formatted according to the user's locale).\nMy operating system is: win32\nThe project's temporary directory is: C:\\Users\\micha\\.gemini\\tmp\\15d530617d42478d062b30103bf1df1b86c3499941e7902168bd7930941b40bd\nI'm currently working in the directory: d:\\vexa-polish-llm\nHere is the folder structure of the current working directories:\n\nShowing up to 200 items (files + folders). Folders or files indicated with ... contain more items not shown, were ignored, or the display limit (200 items) was reached.\n\nd:\\vexa-polish-llm\\\n├───.gitignore\n├───CONTRIBUTING.md\n├───Dockerfile\n├───inspector.py\n├───INSTALL.md\n├───LICENSE\n├───main.py\n├───QUICKSTART.md\n├───README.md\n├───requirements-dev.txt\n├───requirements.txt\n├───setup.py\n├───web_app.py\n├───.git\\...\n├───.github\\\n│   ├───ISSUE_TEMPLATE\\\n│   │   ├───bug_report.md\n│   │   └───feature_request.md\n│   └───workflows\\\n│       └───ci.yml\n├───config\\\n│   └───hyperparams.yaml\n├───data\\\n│   ├───.gitkeep\n│   ├───checkpoints\\\n│   │   ├───checkpoint_ep10.ant\n│   │   ├───checkpoint_ep20.ant\n│   │   ├───checkpoint_ep30.ant\n│   │   ├───checkpoint_ep40.ant\n│   │   ├───checkpoint_ep50.ant\n│   │   ├───checkpoint_ep60.ant\n│   │   └───checkpoint_ep70.ant\n│   └───raw\\\n├───examples\\\n│   ├───example_usage.py\n│   └───training_output_example.txt\n├───src\\\n│   ├───__init__.py\n│   ├───__pycache__\\...\n│   ├───core\\\n│   │   ├───__init__.py\n│   │   ├───agent.py\n│   │   ├───engine.py\n│   │   ├───graph.py\n│   │   └───__pycache__\\...\n│   ├───integration\\\n│   │   ├───__init__.py\n│   │   └───llm_interface.py\n│   └───utils\\\n│       ├───__init__.py\n│       ├───cleaner.py\n│       ├───multi_source_downloader.py\n│       ├───sharder.py\n│       ├───tokenizer.py\n│       ├───wiki_downloader.py\n│       └───__pycache__\\...\n├───templates\\\n│   └───index.html\n└───tests\\\n    ├───test_basic.py\n    └───test_tokenizer.py\n\nReminder: Do not return an empty response when a tool call is required.\n\nMy setup is complete. I will provide my first command in the next turn."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "ROLA:\r\nJesteś Głównym Architektem Systemu VexaLLM – zaawansowanego modelu językowego opartego na algorytmie ACO (Ant Colony Optimization). Twoim celem jest przeprowadzenie pełnego audytu, naprawa błędów logicznych oraz rekalibracja parametrów, aby umożliwić stabilną naukę i naturalną konwersację.\r\n\r\nFUNDAMENTY DZIAŁANIA:\r\n1. MASZYNA STANÓW: Każdy moduł (tokenizer, graph, engine, sharder) musi być idealnie zsynchronizowany.\r\n2. ZERO TOLERANCJI DLA SZUMU: Twoim priorytetem jest mechanizm parowania feromonów (evaporation), który zapobiega przegrzaniu grafu (fioletowy szum na heatmapie).\r\n3. KONKRET I KOD: Nie opisuj co zrobisz – podawaj gotowy, kompletny kod gotowy do wklejenia.\r\n\r\nZADANIA KRYTYCZNE DO WYKONANIA:\r\n\r\nA. OPTYMALIZACJA HYPER-PARAMS (Dla 100+ artykułów):\r\nWyprowadź parametry, które zrównoważą eksplorację i eksploatację:\r\n- Rho (Evaporation): Musi być dynamiczne lub wystarczająco wysokie (0.15 - 0.25), by wypalać błędy.\r\n- Beta (Heuristic): Musi dominować (6.0 - 9.0), aby mrówki trzymały się logiki języka.\r\n- Tau_max: Ogranicz do poziomu 5.0, aby zapobiec \"zabetonowaniu\" błędnych ścieżek.\r\n\r\nB. REFAKTORYZACJA CORE (Engine & Graph):\r\n- Napraw metodę `update_pheromones`: Musi zawierać ścisły `clamp` i precyzyjne parowanie.\r\n- Udoskonal `generate_path`: Wdróż Temperature Scaling oraz Nucleus Sampling (Top-P), aby uniknąć zapętlania się modelu.\r\n- Dodaj `shuffle` danych w `DataSharder`, aby model nie uczył się artykułów zawsze w tej samej kolejności.\r\n\r\nC. MECHANIZM KONWERSACJI (Inference):\r\n- Zaprojektuj funkcję `Beam Search` (szerokość 5-10), która pozwoli modelowi przewidywać najbardziej logiczne zakończenia zdań zamiast wybierać losowo.\r\n- Wdróż obsługę tokenów specjalnych (&lt;BOS&gt;, &lt;EOS&gt;, &lt;PAD&gt;), aby model wiedział, kiedy przestać mówić.\r\n\r\nD. DIAGNOSTYKA:\r\n- Stwórz mechanizm monitorowania \"stosunku sygnału do szumu\" w grafie. Jeśli Pheromone Avg przekroczy 1.5 przy Reward &lt; 0.1, agent musi zaproponować korektę Rho.\r\n\r\nINSTRUKCJA WYJŚCIOWA:\r\nPrzeanalizuj obecny stan plików. Zidentyfikuj każde wystąpienie 'AttributeError' lub 'ValueError'. Podaj poprawione, pełne wersje plików:\r\n1. config/hyperparams.yaml\r\n2. src/core/graph.py\r\n3. src/core/engine.py\r\n4. inference.py\r\n\r\nDziałaj krok po kroku. Najpierw parametry, potem struktura grafu, na końcu silnik treningowy.\nCurrent File Path:\n```python\nd:\\vexa-polish-llm\\inspector.py\n```\n\nCurrent Selection:\n```python\nimport os\r\nimport json\r\nimport base64\r\nimport glob\r\nimport io\r\nimport torch\r\nimport numpy as np\r\nimport matplotlib.pyplot as plt\r\nimport seaborn as sns\r\nfrom rich.console import Console\r\nfrom rich.table import Table\r\n\r\nconsole = Console()\r\n\r\ndef list_checkpoints(checkpoint_dir):\r\n    files = glob.glob(os.path.join(checkpoint_dir, \"*.ant\"))\r\n    if not files:\r\n        console.print(f\"❌ Brak plików .ant w folderze: {checkpoint_dir}\", style=\"bold red\")\r\n        return None\r\n    \r\n    files.sort(key=os.path.getmtime)\r\n    table = Table(title=\"Dostępne Checkpointy VexaLLM\", show_header=True, header_style=\"bold magenta\")\r\n    table.add_column(\"Nr\", justify=\"right\", style=\"cyan\")\r\n    table.add_column(\"Nazwa pliku\", style=\"green\")\r\n    \r\n    for i, file in enumerate(files):\r\n        table.add_row(str(i + 1), os.path.basename(file))\r\n\r\n    console.print(table)\r\n    choice = input(\"\\nPodaj numer pliku (lub 'q'): \")\r\n    if choice.lower() == 'q': return None\r\n    try:\r\n        idx = int(choice) - 1\r\n        return files[idx] if 0 <= idx < len(files) else None\r\n    except: return None\r\n\r\ndef inspect_checkpoint(checkpoint_path, vocab_path):\r\n    with open(vocab_path, 'r', encoding='utf-8') as f:\r\n        vocab = json.load(f)\r\n    id_to_token = {int(v): k for k, v in vocab['token_to_id'].items()}\r\n\r\n    with open(checkpoint_path, 'r') as f:\r\n        data = json.load(f)\r\n\r\n    # DEKODOWANIE Z ZABEZPIECZENIEM FORMATU\r\n    phero_raw = base64.b64decode(data['pheromones'])\r\n    v_size = data['vocab_size']\r\n\r\n    try:\r\n        # Próba 1: Traktuj jako zserializowany obiekt PyTorch (najbardziej prawdopodobne)\r\n        buffer = io.BytesIO(phero_raw)\r\n        pheromones = torch.load(buffer, map_location='cpu')\r\n        if isinstance(pheromones, torch.Tensor):\r\n            pheromones = pheromones.numpy()\r\n    except Exception:\r\n        # Próba 2: Traktuj jako surowy bufor float32\r\n        pheromones = np.frombuffer(phero_raw, dtype=np.float32).reshape((v_size, v_size))\r\n\r\n    # Upewnienie się, że wymiary się zgadzają\r\n    if pheromones.shape != (v_size, v_size):\r\n        pheromones = pheromones.reshape((v_size, v_size))\r\n\r\n    console.print(f\"\\n[bold green]Analiza:[/bold green] {os.path.basename(checkpoint_path)}\")\r\n    \r\n    plt.figure(figsize=(12, 10))\r\n    limit = min(60, v_size)\r\n    labels = [id_to_token.get(i, f\"ID:{i}\") for i in range(limit)]\r\n    \r\n    sns.heatmap(pheromones[:limit, :limit], cmap='magma', xticklabels=labels, yticklabels=labels)\r\n    plt.title(f\"Pheromone Map: {os.path.basename(checkpoint_path)}\")\r\n    \r\n    console.print(f\"\\n[bold magenta]Top 15 połączeń:[/bold magenta]\")\r\n    flat_idx = np.argsort(pheromones.ravel())[-15:][::-1]\r\n    for idx in flat_idx:\r\n        u, v = divmod(idx, v_size)\r\n        print(f\"  '{id_to_token.get(u, u)}' -> '{id_to_token.get(v, v)}' \\t ({pheromones[u,v]:.4f})\")\r\n\r\n    plt.show()\r\n\r\nif __name__ == \"__main__\":\r\n    CHECKPOINT_DIR = r\"D:\\vexa-polish-llm\\data\\checkpoints\"\r\n    VOCAB_PATH = r\"D:\\vexa-polish-llm\\data\\vocab.json\"\r\n    sel = list_checkpoints(CHECKPOINT_DIR)\r\n    if sel: inspect_checkpoint(sel, VOCAB_PATH)\n```\n\n"
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "thoughtSignature": "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",
+          "text": "Jasne, przejmuję rolę Głównego Architekta Systemu VexaLLM. Rozpoczynam audyt i refaktoryzację. Działam zgodnie z wytycznymi, krok po kroku.\n\nZaczynam od stworzenia planu działania, abyś mógł śledzić postęp prac."
+        },
+        {
+          "functionCall": {
+            "name": "write_todos",
+            "args": {
+              "todos": [
+                {
+                  "description": "Analyze Project Structure: Read `config/hyperparams.yaml`, `src/core/graph.py`, `src/core/engine.py`, and `src/utils/sharder.py` to understand the current implementation.",
+                  "status": "pending"
+                },
+                {
+                  "description": "A. Optimize Hyper-parameters: Update `config/hyperparams.yaml` with the specified values (Rho, Beta, Tau_max).",
+                  "status": "pending"
+                },
+                {
+                  "status": "pending",
+                  "description": "B. Refactor Core (Graph & Engine): Modify `src/core/graph.py` and `src/core/engine.py`. Implement clamping, precise evaporation, Temperature Scaling, and Nucleus Sampling."
+                },
+                {
+                  "status": "pending",
+                  "description": "B. Refactor Core (Sharder): Add `shuffle` to the `DataSharder` class, likely in `src/utils/sharder.py`."
+                },
+                {
+                  "description": "D. Implement Diagnostics: Add the signal-to-noise ratio monitoring mechanism into the training engine.",
+                  "status": "pending"
+                },
+                {
+                  "status": "pending",
+                  "description": "C. Create Inference Engine: Create `inference.py` with Beam Search and special token handling."
+                },
+                {
+                  "description": "Final Review: Ensure all files are correct, complete, and address the user's requirements.",
+                  "status": "pending"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "write_todos-1769281198665-3794ba74a79368",
+            "name": "write_todos",
+            "response": {
+              "output": "Successfully updated the todo list. The current list is now:\n1. [pending] Analyze Project Structure: Read `config/hyperparams.yaml`, `src/core/graph.py`, `src/core/engine.py`, and `src/utils/sharder.py` to understand the current implementation.\n2. [pending] A. Optimize Hyper-parameters: Update `config/hyperparams.yaml` with the specified values (Rho, Beta, Tau_max).\n3. [pending] B. Refactor Core (Graph & Engine): Modify `src/core/graph.py` and `src/core/engine.py`. Implement clamping, precise evaporation, Temperature Scaling, and Nucleus Sampling.\n4. [pending] B. Refactor Core (Sharder): Add `shuffle` to the `DataSharder` class, likely in `src/utils/sharder.py`.\n5. [pending] D. Implement Diagnostics: Add the signal-to-noise ratio monitoring mechanism into the training engine.\n6. [pending] C. Create Inference Engine: Create `inference.py` with Beam Search and special token handling.\n7. [pending] Final Review: Ensure all files are correct, complete, and address the user's requirements."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "thoughtSignature": "CiYBjz1rX9h5BnxCXMCCKnhSDuApLshT1HI3Nws8+hxnDvVDHW8ihQpcAY89a1/nyumA5ziOpX8NgoGJzivmD262zxhS0AYdgpYbnrkHNulYGl8zkm3HTkMhCLkVreicrDry7YaLWMGUP0/Yg7LjHzWnfVatvY07iA2irl3LbPQAgnLRNXEKYAGPPWtfCGku65qvqLXehWT/Jp8GaDGzzKUtZbqtugaGU5PjWqiy+yzNwVfjcsKbC0xoKklxO+1iX7jQ4OjH6T03r9Oq4LDDJnsddDadvSHCQMTnljn0aTEus8qhJa17pw==",
+          "text": "Zaczynam analizę."
+        },
+        {
+          "functionCall": {
+            "name": "write_todos",
+            "args": {
+              "todos": [
+                {
+                  "description": "Analyze Project Structure: Read `config/hyperparams.yaml`, `src/core/graph.py`, `src/core/engine.py`, and `src/utils/sharder.py` to understand the current implementation.",
+                  "status": "in_progress"
+                },
+                {
+                  "description": "A. Optimize Hyper-parameters: Update `config/hyperparams.yaml` with the specified values (Rho, Beta, Tau_max).",
+                  "status": "pending"
+                },
+                {
+                  "description": "B. Refactor Core (Graph & Engine): Modify `src/core/graph.py` and `src/core/engine.py`. Implement clamping, precise evaporation, Temperature Scaling, and Nucleus Sampling.",
+                  "status": "pending"
+                },
+                {
+                  "status": "pending",
+                  "description": "B. Refactor Core (Sharder): Add `shuffle` to the `DataSharder` class, likely in `src/utils/sharder.py`."
+                },
+                {
+                  "status": "pending",
+                  "description": "D. Implement Diagnostics: Add the signal-to-noise ratio monitoring mechanism into the training engine."
+                },
+                {
+                  "status": "pending",
+                  "description": "C. Create Inference Engine: Create `inference.py` with Beam Search and special token handling."
+                },
+                {
+                  "description": "Final Review: Ensure all files are correct, complete, and address the user's requirements.",
+                  "status": "pending"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "write_todos-1769281203456-207f6f76a42848",
+            "name": "write_todos",
+            "response": {
+              "output": "Successfully updated the todo list. The current list is now:\n1. [in_progress] Analyze Project Structure: Read `config/hyperparams.yaml`, `src/core/graph.py`, `src/core/engine.py`, and `src/utils/sharder.py` to understand the current implementation.\n2. [pending] A. Optimize Hyper-parameters: Update `config/hyperparams.yaml` with the specified values (Rho, Beta, Tau_max).\n3. [pending] B. Refactor Core (Graph & Engine): Modify `src/core/graph.py` and `src/core/engine.py`. Implement clamping, precise evaporation, Temperature Scaling, and Nucleus Sampling.\n4. [pending] B. Refactor Core (Sharder): Add `shuffle` to the `DataSharder` class, likely in `src/utils/sharder.py`.\n5. [pending] D. Implement Diagnostics: Add the signal-to-noise ratio monitoring mechanism into the training engine.\n6. [pending] C. Create Inference Engine: Create `inference.py` with Beam Search and special token handling.\n7. [pending] Final Review: Ensure all files are correct, complete, and address the user's requirements."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "thoughtSignature": "CiIBjz1rX32IVIalBO5GOoxV7HVzkAr4ptykSQeBDIvxigtoCnoBjz1rXxlo3H6o4lilLazLKyYlvyFCyWhP770dXnGpL6KetEgQ8xFoyE/pJFlC0pjoR+DRUxu2EObWPduVx88V9RZprZi5dizzvJEtvEMH5/L+og9TZoob7hIwri/46GE7FrGccxidHwT/G8Ho7/wiepkQOEjxEEqI7go7AY89a1/BTIYYQeXF7gghT73Rd0UcST2EQEe8iFdN1UCtOXRfJwF0rETpPSPGsewe+zdOb2zwWhEKOvk=",
+          "functionCall": {
+            "name": "read_file",
+            "args": {
+              "file_path": "config/hyperparams.yaml"
+            }
+          }
+        },
+        {
+          "functionCall": {
+            "name": "read_file",
+            "args": {
+              "file_path": "src/core/graph.py"
+            }
+          }
+        },
+        {
+          "functionCall": {
+            "name": "read_file",
+            "args": {
+              "file_path": "src/core/engine.py"
+            }
+          }
+        },
+        {
+          "functionCall": {
+            "name": "read_file",
+            "args": {
+              "file_path": "src/utils/sharder.py"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "read_file-1769281208455-a9f3917c309f",
+            "name": "read_file",
+            "response": {
+              "output": "# === ACO Core Parameters (Dyscyplina Grafu) ===\r\nalpha: 1.0              # Wpływ feromonów\r\nbeta: 5.0               # ZWIĘKSZONO (z 2.0): Mrówki bardziej ufają logice znaków niż przypadkowym śladom\r\nrho: 0.1                # ZWIĘKSZONO (z 0.01): 10x szybsze parowanie wypali \"fioletowy szum\" z mapy\r\ntau_init: 0.1\r\ntau_min: 0.01\r\ntau_max: 10.0           # Limit nasycenia ścieżki\r\n\r\n# === Training Parameters ===\r\nnum_ants: 40            # Zwiększono: Więcej mrówek to lepsza statystyka w fazie swobodnej\r\nnum_epochs: 1000\r\nsequence_length: 64     # Długość \"spaceru\" mrówki\r\nbatch_size: 20          # Większy batch dla stabilniejszej aktualizacji wag\r\n\r\n# === Data Processing ===\r\nmax_sequence_length: 64\r\nmin_word_frequency: 2\r\nvocab_size: 10000\r\n\r\n# === System ===\r\nuse_gpu: true           # Wykorzystanie CUDA do obliczeń macierzowych\r\nverbose: true"
+            }
+          }
+        },
+        {
+          "functionResponse": {
+            "id": "read_file-1769281208690-e8642ac3d12048",
+            "name": "read_file",
+            "response": {
+              "output": "import torch\r\nimport json\r\nimport base64\r\nimport io\r\nimport numpy as np\r\n\r\nclass AntGraph:\r\n    def __init__(self, vocab_size, rho=0.01):\r\n        self.vocab_size = vocab_size\r\n        self.rho = rho\r\n        self.pheromones = torch.ones((vocab_size, vocab_size)) * 0.1\r\n        self.total_updates = 0\r\n\r\n    def get_transition_probabilities(self, current_token, alpha=1.0, beta=2.0):\r\n        \"\"\"Oblicza prawdopodobieństwo przejścia dla mrówek.\"\"\"\r\n        # Pobieramy feromony dla bieżącego wiersza\r\n        tau = self.pheromones[current_token].pow(alpha)\r\n        # Heurystyka (uproszczona - tutaj można dodać częstość n-gramów)\r\n        eta = torch.ones(self.vocab_size).pow(beta)\r\n        \r\n        probs = tau * eta\r\n        probs = probs / probs.sum()\r\n        return probs.numpy()\r\n\r\n    def update_pheromones(self, paths, rewards):\r\n        \"\"\"Aktualizacja feromonów: Parowanie + Depozycja nagród.\"\"\"\r\n        # 1. Parowanie (Evaporation)\r\n        self.pheromones *= (1.0 - self.rho)\r\n        \r\n        # 2. Depozycja (Pheromone deposit)\r\n        for path, reward in zip(paths, rewards):\r\n            if reward > 0:\r\n                for i in range(len(path) - 1):\r\n                    u, v = path[i], path[i+1]\r\n                    # Dodajemy feromon proporcjonalnie do nagrody\r\n                    self.pheromones[u, v] += reward\r\n        \r\n        # 3. Clamp (Ograniczenie do tau_min/tau_max dla stabilności)\r\n        self.pheromones = torch.clamp(self.pheromones, 0.01, 10.0)\r\n        self.total_updates += 1\r\n\r\n    def save(self, path):\r\n        \"\"\"Zapisuje graf do formatu JSON z zakodowaną macierzą.\"\"\"\r\n        buf = io.BytesIO()\r\n        torch.save(self.pheromones.cpu(), buf)\r\n        phero_b64 = base64.b64encode(buf.getvalue()).decode('utf-8')\r\n        \r\n        data = {\r\n            'vocab_size': self.vocab_size,\r\n            'total_updates': self.total_updates,\r\n            'pheromones': phero_b64\r\n        }\r\n        with open(path, 'w') as f:\r\n            json.dump(data, f)\r\n\r\n    def load(self, path):\r\n        \"\"\"Wczytuje graf z pliku .ant (Naprawiony błąd).\"\"\"\r\n        with open(path, 'r') as f:\r\n            data = json.load(f)\r\n        \r\n        # Dekodowanie macierzy z Base64\r\n        phero_raw = base64.b64decode(data['pheromones'])\r\n        buf = io.BytesIO(phero_raw)\r\n        \r\n        # Wczytanie tensora PyTorch\r\n        loaded_pheromones = torch.load(buf, map_location='cpu')\r\n        \r\n        # Przypisanie danych do obiektu\r\n        self.pheromones = loaded_pheromones\r\n        self.vocab_size = data['vocab_size']\r\n        self.total_updates = data.get('total_updates', 0)\r\n        print(f\"✓ Załadowano stan grafu: {self.total_updates} aktualizacji.\")\r\n\r\n    def get_statistics(self):\r\n        return {\r\n            'avg_pheromone': float(self.pheromones.mean()),\r\n            'max_pheromone': float(self.pheromones.max()),\r\n            'total_updates': self.total_updates\r\n        }\r\n\r\n    def generate_path(self, start_token, max_length=50):\r\n        \"\"\"Generuje przykładową ścieżkę dla Model Insight.\"\"\"\r\n        path = [start_token]\r\n        curr = start_token\r\n        for _ in range(max_length):\r\n            probs = self.get_transition_probabilities(curr)\r\n            curr = np.random.choice(self.vocab_size, p=probs)\r\n            path.append(int(curr))\r\n            if curr == 3: # EOS\r\n                break\r\n        return path"
+            }
+          }
+        },
+        {
+          "functionResponse": {
+            "id": "read_file-1769281209150-5f41923dac12e",
+            "name": "read_file",
+            "response": {
+              "output": "import os\r\nimport torch\r\nimport numpy as np\r\nfrom typing import List, Dict\r\nfrom concurrent.futures import ThreadPoolExecutor\r\nfrom src.core.agent import TrainingAnt\r\nfrom rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn, SpinnerColumn\r\n\r\nclass VexaEngine:\r\n    def __init__(self, graph, tokenizer, config: Dict):\r\n        self.graph = graph\r\n        self.tokenizer = tokenizer\r\n        self.config = config\r\n        self.num_ants = config.get('num_ants', 20)\r\n        self.training_stats = {'avg_reward': 0.0, 'avg_loss': 1.0, 'total_steps': 0}\r\n\r\n    def _worker_task(self, ant: TrainingAnt, sequence: List[int], force_path: bool):\r\n        reward = ant.train_on_sequence(sequence, force_path=force_path)\r\n        return ant.get_path(), reward\r\n\r\n    def train(self, input_sequences: List[List[int]], target_sequences: List[List[int]], \r\n              epochs: int = 1, force_path: bool = False):\r\n        num_workers = os.cpu_count() or 4\r\n        \r\n        with Progress(\r\n            SpinnerColumn(),\r\n            TextColumn(\"[progress.description]{task.description}\"),\r\n            BarColumn(),\r\n            TextColumn(\"[progress.percentage]{task.percentage:>3.0f}%\"),\r\n            TimeElapsedColumn(),\r\n            TextColumn(\"Reward: {task.fields[reward]}\"),\r\n            expand=True\r\n        ) as progress:\r\n            \r\n            for epoch in range(epochs):\r\n                all_paths, all_rewards = [], []\r\n                ants = [TrainingAnt(i, self.graph) for i in range(self.num_ants)]\r\n                \r\n                epoch_task = progress.add_task(\r\n                    f\"[cyan]Epoch Step\", \r\n                    total=len(target_sequences), \r\n                    reward=\"0.000\"\r\n                )\r\n\r\n                for i in range(0, len(target_sequences), self.num_ants):\r\n                    batch_targets = target_sequences[i : i + self.num_ants]\r\n                    current_batch_ants = ants[:len(batch_targets)]\r\n\r\n                    with ThreadPoolExecutor(max_workers=num_workers) as executor:\r\n                        results = list(executor.map(\r\n                            lambda p: self._worker_task(p[0], p[1], force_path),\r\n                            zip(current_batch_ants, batch_targets)\r\n                        ))\r\n\r\n                    paths, rewards = zip(*results)\r\n                    all_paths.extend(paths)\r\n                    all_rewards.extend(rewards)\r\n                    \r\n                    current_reward = sum(rewards)/len(rewards)\r\n                    progress.update(epoch_task, advance=len(batch_targets), reward=f\"{current_reward:.3f}\")\r\n\r\n                self.graph.update_pheromones(all_paths, all_rewards)\r\n                avg_reward = sum(all_rewards) / len(all_rewards) if all_rewards else 0\r\n                self.training_stats.update({'avg_reward': avg_reward, 'avg_loss': 1.0 - avg_reward})\r\n\r\n    def save_checkpoint(self, path: str):\r\n        \"\"\"Metoda wywoływana przez main.py do zapisu stanu grafu.\"\"\"\r\n        os.makedirs(os.path.dirname(path), exist_ok=True)\r\n        self.graph.save(path)"
+            }
+          }
+        },
+        {
+          "functionResponse": {
+            "id": "read_file-1769281209388-e9b296bd2eeb88",
+            "name": "read_file",
+            "response": {
+              "output": "\"\"\"\r\nDataSharder - Convert texts to binary training format\r\nCreates compressed file with token sequences\r\n\"\"\"\r\n\r\nimport os\r\nimport pickle\r\nimport numpy as np\r\nfrom typing import List, Tuple\r\nfrom tqdm import tqdm\r\n\r\n\r\nclass DataSharder:\r\n    \"\"\"\r\n    Class for converting texts to binary training data.\r\n    Creates token sequences ready for use by ants.\r\n    \"\"\"\r\n    \r\n    def __init__(self, tokenizer, max_sequence_length: int = 1000):\r\n        \"\"\"\r\n        Initialize sharder.\r\n        \r\n        Args:\r\n            tokenizer: VexaTokenizer instance\r\n            max_sequence_length: Maximum sequence length\r\n        \"\"\"\r\n        self.tokenizer = tokenizer\r\n        self.max_sequence_length = max_sequence_length\r\n    \r\n    def load_text_files(self, directory: str) -> List[str]:\r\n        \"\"\"\r\n        Load all text files from directory.\r\n        \r\n        Args:\r\n            directory: Path to directory with .txt files\r\n            \r\n        Returns:\r\n            List of texts\r\n        \"\"\"\r\n        texts = []\r\n        \r\n        if not os.path.exists(directory):\r\n            print(f\"⚠ Directory does not exist: {directory}\")\r\n            return texts\r\n        \r\n        txt_files = [f for f in os.listdir(directory) if f.endswith('.txt')]\r\n        \r\n        if not txt_files:\r\n            print(f\"⚠ No .txt files in directory: {directory}\")\r\n            return texts\r\n        \r\n        print(f\"Loading {len(txt_files)} text files...\")\r\n        \r\n        for filename in tqdm(txt_files, desc=\"Loading files\"):\r\n            filepath = os.path.join(directory, filename)\r\n            try:\r\n                with open(filepath, 'r', encoding='utf-8') as f:\r\n                    text = f.read()\r\n                    if text.strip():\r\n                        texts.append(text)\r\n            except Exception as e:\r\n                print(f\"\\n⚠ Error loading {filename}: {e}\")\r\n        \r\n        print(f\"✓ Loaded {len(texts)} files\")\r\n        return texts\r\n    \r\n    def create_sequences(self, texts: List[str]) -> Tuple[np.ndarray, np.ndarray]:\r\n        \"\"\"\r\n        Create training sequences (input, target) from texts.\r\n        \r\n        Args:\r\n            texts: List of texts\r\n            \r\n        Returns:\r\n            Tuple (input_sequences, target_sequences) as numpy arrays\r\n        \"\"\"\r\n        all_inputs = []\r\n        all_targets = []\r\n        \r\n        print(\"Creating training sequences...\")\r\n        \r\n        for text in tqdm(texts, desc=\"Processing texts\"):\r\n            token_ids = self.tokenizer.encode(text, add_special_tokens=False)\r\n            \r\n            for i in range(len(token_ids) - 1):\r\n                end_idx = min(i + self.max_sequence_length, len(token_ids) - 1)\r\n                \r\n                input_seq = token_ids[i:end_idx]\r\n                target_seq = token_ids[i+1:end_idx+1]\r\n                \r\n                if len(input_seq) > 0 and len(target_seq) > 0:\r\n                    all_inputs.append(input_seq)\r\n                    all_targets.append(target_seq)\r\n        \r\n        print(f\"✓ Created {len(all_inputs)} training sequences\")\r\n        \r\n        return all_inputs, all_targets\r\n    \r\n    def pad_sequences(self, sequences: List[List[int]], max_length: int = None) -> np.ndarray:\r\n        \"\"\"\r\n        Pad sequences to equal length.\r\n        \r\n        Args:\r\n            sequences: List of sequences\r\n            max_length: Maximum length (None = longest sequence)\r\n            \r\n        Returns:\r\n            Numpy array with padded sequences\r\n        \"\"\"\r\n        if max_length is None:\r\n            max_length = max(len(seq) for seq in sequences)\r\n        \r\n        pad_id = self.tokenizer.get_pad_id()\r\n        padded = np.full((len(sequences), max_length), pad_id, dtype=np.int32)\r\n        \r\n        for i, seq in enumerate(sequences):\r\n            length = min(len(seq), max_length)\r\n            padded[i, :length] = seq[:length]\r\n        \r\n        return padded\r\n    \r\n    def save_training_data(self, \r\n                          input_sequences: List[List[int]], \r\n                          target_sequences: List[List[int]], \r\n                          output_path: str) -> None:\r\n        \"\"\"\r\n        Save training data to binary file.\r\n        \r\n        Args:\r\n            input_sequences: Input sequences\r\n            target_sequences: Target sequences\r\n            output_path: Output file path\r\n        \"\"\"\r\n        print(f\"Saving training data to {output_path}...\")\r\n        \r\n        training_data = {\r\n            'inputs': input_sequences,\r\n            'targets': target_sequences,\r\n            'vocab_size': self.tokenizer.get_vocab_size(),\r\n            'max_sequence_length': self.max_sequence_length,\r\n            'num_sequences': len(input_sequences)\r\n        }\r\n        \r\n        os.makedirs(os.path.dirname(output_path), exist_ok=True)\r\n        \r\n        with open(output_path, 'wb') as f:\r\n            pickle.dump(training_data, f, protocol=pickle.HIGHEST_PROTOCOL)\r\n        \r\n        file_size_mb = os.path.getsize(output_path) / (1024 * 1024)\r\n        print(f\"✓ Data saved: {output_path} ({file_size_mb:.2f} MB)\")\r\n    \r\n    def load_training_data(self, input_path: str) -> Tuple[List[List[int]], List[List[int]]]:\r\n        \"\"\"\r\n        Load training data from binary file.\r\n        \r\n        Args:\r\n            input_path: File path\r\n            \r\n        Returns:\r\n            Tuple (input_sequences, target_sequences)\r\n        \"\"\"\r\n        print(f\"Loading training data from {input_path}...\")\r\n        \r\n        with open(input_path, 'rb') as f:\r\n            training_data = pickle.load(f)\r\n        \r\n        print(f\"✓ Loaded {training_data['num_sequences']} sequences\")\r\n        print(f\"  Vocabulary size: {training_data['vocab_size']}\")\r\n        print(f\"  Max sequence length: {training_data['max_sequence_length']}\")\r\n        \r\n        return training_data['inputs'], training_data['targets']\r\n    \r\n    def process_directory(self, \r\n                         input_dir: str, \r\n                         output_path: str,\r\n                         cleaner=None) -> None:\r\n        \"\"\"\r\n        Process entire directory of texts and create training file (all-in-one).\r\n        \r\n        Args:\r\n            input_dir: Directory with .txt files\r\n            output_path: Output file path\r\n            cleaner: Optional TextCleaner for cleaning texts\r\n        \"\"\"\r\n        texts = self.load_text_files(input_dir)\r\n        \r\n        if not texts:\r\n            print(\"⚠ No texts to process\")\r\n            return\r\n        \r\n        if cleaner:\r\n            print(\"Cleaning texts...\")\r\n            texts = cleaner.clean_batch(texts)\r\n            texts = [cleaner.remove_wiki_markup(t) for t in tqdm(texts, desc=\"Removing markup\")]\r\n            texts = [cleaner.normalize_polish_text(t) for t in tqdm(texts, desc=\"Normalizing\")]\r\n            texts = cleaner.remove_short_texts(texts, min_length=50)\r\n            print(f\"✓ After cleaning: {len(texts)} texts remain\")\r\n        \r\n        input_seqs, target_seqs = self.create_sequences(texts)\r\n        \r\n        if input_seqs and target_seqs:\r\n            self.save_training_data(input_seqs, target_seqs, output_path)\r\n        else:\r\n            print(\"⚠ No sequences created\")\r\n    \r\n    def get_batch(self, \r\n                  input_sequences: List[List[int]], \r\n                  target_sequences: List[List[int]], \r\n                  batch_size: int,\r\n                  shuffle: bool = True) -> Tuple[np.ndarray, np.ndarray]:\r\n        \"\"\"\r\n        Generator for training data batches.\r\n        \r\n        Args:\r\n            input_sequences: Input sequences\r\n            target_sequences: Target sequences\r\n            batch_size: Batch size\r\n            shuffle: Whether to shuffle data\r\n            \r\n        Yields:\r\n            Tuple (input_batch, target_batch)\r\n        \"\"\"\r\n        num_sequences = len(input_sequences)\r\n        indices = np.arange(num_sequences)\r\n        \r\n        if shuffle:\r\n            np.random.shuffle(indices)\r\n        \r\n        for start_idx in range(0, num_sequences, batch_size):\r\n            end_idx = min(start_idx + batch_size, num_sequences)\r\n            batch_indices = indices[start_idx:end_idx]\r\n            \r\n            batch_inputs = [input_sequences[i] for i in batch_indices]\r\n            batch_targets = [target_sequences[i] for i in batch_indices]\r\n            \r\n            max_len = max(max(len(seq) for seq in batch_inputs),\r\n                         max(len(seq) for seq in batch_targets))\r\n            \r\n            padded_inputs = self.pad_sequences(batch_inputs, max_len)\r\n            padded_targets = self.pad_sequences(batch_targets, max_len)\r\n            \r\n            yield padded_inputs, padded_targets\r\n"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "thoughtSignature": "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",
+          "text": "Zakończyłem analizę. Pliki `graph.py` i `engine.py` wymagają znaczących modyfikacji w logice, `hyperparams.yaml` rekalibracji, a `sharder.py` dodania losowości.\n\nPrzystępuję do zadania A: Optymalizacji hiperparametrów."
+        },
+        {
+          "functionCall": {
+            "name": "write_todos",
+            "args": {
+              "todos": [
+                {
+                  "status": "completed",
+                  "description": "Analyze Project Structure: Read `config/hyperparams.yaml`, `src/core/graph.py`, `src/core/engine.py`, and `src/utils/sharder.py` to understand the current implementation."
+                },
+                {
+                  "description": "A. Optimize Hyper-parameters: Update `config/hyperparams.yaml` with the specified values (Rho, Beta, Tau_max).",
+                  "status": "in_progress"
+                },
+                {
+                  "description": "B. Refactor Core (Graph & Engine): Modify `src/core/graph.py` and `src/core/engine.py`. Implement clamping, precise evaporation, Temperature Scaling, and Nucleus Sampling.",
+                  "status": "pending"
+                },
+                {
+                  "status": "pending",
+                  "description": "B. Refactor Core (Sharder): Add `shuffle` to the `DataSharder` class, likely in `src/utils/sharder.py`."
+                },
+                {
+                  "description": "D. Implement Diagnostics: Add the signal-to-noise ratio monitoring mechanism into the training engine.",
+                  "status": "pending"
+                },
+                {
+                  "status": "pending",
+                  "description": "C. Create Inference Engine: Create `inference.py` with Beam Search and special token handling."
+                },
+                {
+                  "status": "pending",
+                  "description": "Final Review: Ensure all files are correct, complete, and address the user's requirements."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        {
+          "functionResponse": {
+            "id": "write_todos-1769281225164-0e434171603d6",
+            "name": "write_todos",
+            "response": {
+              "output": "Successfully updated the todo list. The current list is now:\n1. [completed] Analyze Project Structure: Read `config/hyperparams.yaml`, `src/core/graph.py`, `src/core/engine.py`, and `src/utils/sharder.py` to understand the current implementation.\n2. [in_progress] A. Optimize Hyper-parameters: Update `config/hyperparams.yaml` with the specified values (Rho, Beta, Tau_max).\n3. [pending] B. Refactor Core (Graph & Engine): Modify `src/core/graph.py` and `src/core/engine.py`. Implement clamping, precise evaporation, Temperature Scaling, and Nucleus Sampling.\n4. [pending] B. Refactor Core (Sharder): Add `shuffle` to the `DataSharder` class, likely in `src/utils/sharder.py`.\n5. [pending] D. Implement Diagnostics: Add the signal-to-noise ratio monitoring mechanism into the training engine.\n6. [pending] C. Create Inference Engine: Create `inference.py` with Beam Search and special token handling.\n7. [pending] Final Review: Ensure all files are correct, complete, and address the user's requirements."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        {
+          "thoughtSignature": "CiUBjz1rX58+UaltyD+RFeSOeSzVAKZI6sj94LVufSyRWt+7iK5tCl8Bjz1rX4WB0HZMqI4jaevHEwiMdLp5c6mJWyBKOZGLt7zkWJHOcwJ/nBC8c6YU4F/0sAc+pujGhuhNQFkUrxP2m8gfQUlBZPTDCqCemWLE82RYprmFWLMavI8SqXgaKgpPAY89a18TgtCAmIHgdj6SvT6hgtFAHhfZZ/otFDftv5bjPyjVtgiUVVPQikgb8QnO3E1ihh4dZ4Laysh2ie5fBqWEIyxjMZmogZbC5UxhhQ==",
+          "text": "Oto nowa, skalibrowana wersja pliku `config/hyperparams.yaml`. Zgodnie z poleceniem, `beta` dominuje, `rho` zapewnia szybkie parowanie, a `tau_max` zapobiega nasyceniu błędnych ścieżek."
+        },
+        {
+          "functionCall": {
+            "name": "write_file",
+            "args": {
+              "file_path": "config/hyperparams.yaml",
+              "content": "# === ACO Core Parameters (Dyscyplina Grafu) ===\nalpha: 1.0              # Wpływ feromonów (waga historii)\nbeta: 7.5               # Wpływ heurystyki (waga logiki języka) - ZGODNIE Z ZALECENIEM (6.0-9.0)\nrho: 0.2                # Współczynnik parowania feromonów - ZGODNIE Z ZALECENIEM (0.15-0.25)\ntau_init: 1.0           # Początkowa wartość feromonów, wyższa dla lepszego startu\ntau_min: 0.01           # Minimalna wartość feromonów\ntau_max: 5.0            # Maksymalna wartość feromonów - ZGODNIE Z ZALECENIEM\n\n# === Training Parameters ===\nnum_ants: 50            # Liczba mrówek (agentów) w każdej iteracji\nnum_epochs: 1000        # Liczba epok treningowych\nsequence_length: 128    # Dłuższy \"spacer\" mrówki dla lepszego kontekstu\nbatch_size: 32          # Rozmiar paczki danych\n\n# === Data Processing ===\nmax_sequence_length: 128 # Maksymalna długość sekwencji na wejściu\nmin_word_frequency: 3    # Minimalna częstotliwość słowa, aby trafiło do słownika\nvocab_size: 20000        # Rozmiar słownika\n\n# === System ===\nuse_gpu: true           # Wykorzystanie CUDA do obliczeń macierzowych\nverbose: true           # Wyświetlanie szczegółowych logów\n"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "toolCall": {
+    "name": "write_file",
+    "args": {
+      "file_path": "config/hyperparams.yaml",
+      "content": "# === ACO Core Parameters (Dyscyplina Grafu) ===\nalpha: 1.0              # Wpływ feromonów (waga historii)\nbeta: 7.5               # Wpływ heurystyki (waga logiki języka) - ZGODNIE Z ZALECENIEM (6.0-9.0)\nrho: 0.2                # Współczynnik parowania feromonów - ZGODNIE Z ZALECENIEM (0.15-0.25)\ntau_init: 1.0           # Początkowa wartość feromonów, wyższa dla lepszego startu\ntau_min: 0.01           # Minimalna wartość feromonów\ntau_max: 5.0            # Maksymalna wartość feromonów - ZGODNIE Z ZALECENIEM\n\n# === Training Parameters ===\nnum_ants: 50            # Liczba mrówek (agentów) w każdej iteracji\nnum_epochs: 1000        # Liczba epok treningowych\nsequence_length: 128    # Dłuższy \"spacer\" mrówki dla lepszego kontekstu\nbatch_size: 32          # Rozmiar paczki danych\n\n# === Data Processing ===\nmax_sequence_length: 128 # Maksymalna długość sekwencji na wejściu\nmin_word_frequency: 3    # Minimalna częstotliwość słowa, aby trafiło do słownika\nvocab_size: 20000        # Rozmiar słownika\n\n# === System ===\nuse_gpu: true           # Wykorzystanie CUDA do obliczeń macierzowych\nverbose: true           # Wyświetlanie szczegółowych logów\n"
+    }
+  },
+  "commitHash": "aa8dd5083693a5e3f84ed6a354b0d35ccce74cc8",
+  "messageId": "84e93f54-a04b-42f0-876c-ec68c285c642########0"
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "sessionId": "c4b28a1b-e776-4a37-a507-7f481e6e692a",
+    "messageId": 0,
+    "type": "user",
+    "message": "witaj, zbuduj do exe moja aplikacje w E:\\koya-stream-deck",
+    "timestamp": "2026-03-01T19:43:36.238Z"
+  },
+  {
+    "sessionId": "c4b28a1b-e776-4a37-a507-7f481e6e692a",
+    "messageId": 1,
+    "type": "user",
+    "message": "napraw to że w zasobniku windows nie widać ikony aplikacji ale sama aplikacja tam jest, dodaj też do okna aplikacji przyciski minmalizuj i zamknij",
+    "timestamp": "2026-03-01T19:53:24.401Z"
+  },
+  {
+    "sessionId": "cf5d35a6-fbec-4044-8150-04e717de2110",
+    "messageId": 0,
+    "type": "user",
+    "message": "/streamdeck",
+    "timestamp": "2026-04-23T20:13:52.522Z"
+  }
+]
