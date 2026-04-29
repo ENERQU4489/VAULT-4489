@@ -1,0 +1,3 @@
+{
+  "output": "# 📅 2026-04-25\nTagi: #daily\n\n## 🎯 Cel Główny na Dziś\n- [ ] (Oczekiwanie na input Michała)\n\n## 🧠 Brain Dump (Zrzut Myśli)\n> Start nowej sesji. Systemy sprawne, tożsamość załadowana.\n\n## 🛠️ Wykonane Zadania\n- [x] Automatyczne podsumowanie przez vault-gpt 🤍\n- [x] Inicjalizacja sesji i utworzenie notatki dziennej.\n\n## 💡 Czego się dziś nauczyłem / Co mnie zaskoczyło?\n- Dopiero zaczynamy, zobaczymy co przyniesie dzień.\n\n## 🎭 Vibe Check\n- **Nastrój**: Gotowa do roboty.\n- **Zwycięstwo dnia**: Prawidłowy start bez błędów w logice.\n\n---\n\n[[SYSTEM]]"
+}

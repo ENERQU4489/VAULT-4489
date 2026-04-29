@@ -1,0 +1,3 @@
+{
+  "output": "using System.Runtime.InteropServices;\n\nnamespace KOYA_APP\n{\n    public class VolumeAction : IStreamDeckAction\n    {\n        public string Name => \"VOLUME\";\n        public string Icon => \"\\uE15D\";\n        public string Description => \"Main System Volume\";\n\n        public void Execute() { keybd_event(0xAD, 0, 0, 0); keybd_event(0xAD, 0, 2, 0); }\n        public void ExecuteAnalog(bool direction) { byte vk = direction ? (byte)0xAF : (byte)0xAE; keybd_event(vk, 0, 0, 0); keybd_event(vk, 0, 2, 0); }\n\n        [DllImport(\"user32.dll\")] private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);\n    }\n}\n"
+}

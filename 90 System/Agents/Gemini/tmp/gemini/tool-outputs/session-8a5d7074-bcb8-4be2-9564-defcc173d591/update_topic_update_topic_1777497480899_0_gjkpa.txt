@@ -1,0 +1,3 @@
+{
+  "output": "Current topic: \"Uruchomienie i diagnostyka KOYA-APP\"\nTopic summary: Michał poprosił o uruchomienie aplikacji i sprawdzenie błędów. Przechodzę do katalogu projektu i wykonuję komendę `dotnet run`. Jeśli wystąpią błędy kompilacji lub runtime, będę je diagnozować i naprawiać. To kluczowy krok w weryfikacji aktualnego stanu technicznego projektu.\n\nStrategic Intent: Próba kompilacji i uruchomienia aplikacji KOYA-APP w celu identyfikacji błędów."
+}

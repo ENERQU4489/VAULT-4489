@@ -4,17 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "33440c7eab73d778",
+        "id": "9039160eec96f66b",
         "type": "tabs",
         "children": [
           {
-            "id": "bed6777f1e5ff196",
+            "id": "78e8308c3034b561",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Podgląd grafu"
+              "type": "canvas",
+              "state": {
+                "file": "30 Areas/Factorio/Automatyzacja Zielonej Nauki.canvas",
+                "viewState": {
+                  "x": 969.2463651476221,
+                  "y": -199.91111553914905,
+                  "zoom": -1.538866086131702
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Automatyzacja Zielonej Nauki"
             }
           }
         ]
@@ -74,7 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 207.5
   },
   "right": {
     "id": "f57a4e4a75f7db31",
@@ -188,47 +195,54 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "bed6777f1e5ff196",
+  "active": "78e8308c3034b561",
   "lastOpenFiles": [
-    "40 Brain/Analiza Grafowa Wikipedii.md",
-    "40 Brain/Process Hollowing.md",
-    "90 System/Agents/Gemini/tmp/gemini/chats/session-2026-04-24T21-32-e4408995.jsonl",
-    "90 System/Agents/Gemini/projects.json.lock",
-    "20 Projects/WikiSfera/README.md",
-    "20 Projects/WikiSfera/WIZUALIZACJA.md",
-    "90 Meta/Templates/Daily Note Template.md",
-    "90 System/Attachments/Pasted image 20260424232801.png",
-    "90 System/Attachments",
-    "40 Brain/Docker.md",
-    "90 System/Agents/Gemini/skills/neural-architect/SKILL.md",
-    "GEMINI.base",
-    "Bez nazwy.md",
-    "90 System/Agents/Gemini/tmp/gemini/memory/GEMINI.md",
-    "90 System/Agents/Gemini/GEMINI.md",
-    "90 System/Agents/Gemini/skills/spotify-player/SKILL.md",
-    "20 Projects/neural-architect/SKILL.md",
-    "SYSTEM.md",
-    "30 Areas/Infrastruktura/Inwentarz Sprzętowy.md",
-    "AMD Ryzen 5 5500.md",
-    "Wartość bezwzględna liczby.md",
-    "40 Brain/Matematyka - Wzory Maturalne.md",
-    "90 System/USER.md",
-    "90 System/TOOLS.md",
-    "90 System/SOUL.md",
-    "90 System/MEMORY.md",
-    "90 System/IDENTITY.md",
-    "90 System/HEARTBEAT.md",
-    "90 System/AGENTS.md",
-    "GEMINI.md",
-    "WikiLinks.md",
-    "20 Projects/vexa-polish-llm-map.canvas",
-    "20 Projects/bomberV2-analysis/dokument.pdf",
+    "30 Areas/Factorio/Engine Unit Production.canvas",
+    "30 Areas/Factorio/Automatyzacja Zielonej Nauki.canvas",
+    "90 System/Agents/Gemini/tmp/background-processes/background-14304.log",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/resolve-uri/dist/types/resolve-uri.d.ts",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/resolve-uri/dist/types",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js.map",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs.map",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/resolve-uri/dist",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/remapping/dist/remapping.umd.js.map",
+    "20 Projects/GeminiWebUI/client/node_modules/@jridgewell/remapping/dist/remapping.mjs.map",
+    "20 Projects/GeminiWebUI/client/node_modules/enhanced-resolve/README.md",
+    "20 Projects/GeminiWebUI/client/node_modules/@types/hast/README.md",
+    "20 Projects/GeminiWebUI/client/node_modules/zwitch/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/character-entities/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/micromark-util-resolve-all/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/socket.io-parser/Readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/mdast-util-to-markdown/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/mdast-util-mdx-jsx/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/dequal/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/remark-rehype/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/devlop/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/clsx/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/mdast-util-mdxjs-esm/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/micromark-util-normalize-identifier/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/micromark-util-decode-numeric-character-reference/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/micromark-util-sanitize-uri/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/longest-streak/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/micromark-core-commonmark/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/unist-util-position/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/mdast-util-phrasing/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/mdast-util-mdx-expression/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/property-information/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/mdast-util-from-markdown/readme.md",
+    "20 Projects/GeminiWebUI/client/node_modules/style-to-js/README.md",
+    "20 Projects/GeminiWebUI/client/node_modules/space-separated-tokens/readme.md",
+    "20 Projects/GeminiWebUI/client/src/assets/react.svg",
+    "20 Projects/GeminiWebUI/client/src/assets/vite.svg",
+    "20 Projects/GeminiWebUI/client/src/assets/hero.png",
+    "20 Projects/GeminiWebUI/client/public/icons.svg",
+    "20 Projects/GeminiWebUI/client/public/favicon.svg",
     "20 Projects/bomberV2-analysis/variations-to-the-minecraft-logo-v0-0dzqovtefeqd1.webp",
-    "20 Projects/WikiSfera/output/map.html",
-    "90 System/Agents/Gemini/tmp/gemini/chats/session-2026-04-24T21-12-e8b74875.jsonl",
-    "20 Projects/WikiSfera/output/map_data.json",
-    "Bez nazwy.canvas",
-    "20 Projects/WikiSfera/src/visualizer.py",
-    "20 Projects/WikiSfera/data/wiki_graph.db-journal"
+    "90 System/Attachments/Pasted image 20260424232801.png",
+    "30 Areas/Factorio/Bez nazwy.canvas",
+    "20 Projects/vexa-polish-llm-map.canvas",
+    "Bez nazwy.canvas"
   ]
 }

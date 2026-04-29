@@ -1,0 +1,3 @@
+{
+  "output": "Current topic: \"Lifting wizualny KOYA: Black & White Edition\"\nTopic summary: Michał chce, aby aplikacja wyglądała bardziej \"premium\": czarne tło, białe akcenty, czcionka Audiowide oraz efekty wizualne takie jak blur. Dodatkowo muszę poprawić widoczność zaznaczenia w `ActionPicker` (aktualnie nie widać, co jest wybrane) oraz zmienić nazwę aplikacji na \"KOYA\". Planuję zaktualizować `MainWindow.xaml` dla nowej stylistyki, `ActionPicker.xaml` dla poprawy UX oraz `App.xaml` dla globalnych zasobów i czcionek.\n\nStrategic Intent: Głęboki lifting wizualny aplikacji KOYA (Black & White style, Audiowide font, efekty Blur i poprawa ActionPicker)."
+}

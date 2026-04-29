@@ -1,0 +1,4 @@
+{
+  "output": "Command was cancelled by user before it could complete. There was no output before it was cancelled.",
+  "error": "[Operation Cancelled] User cancelled tool execution."
+}

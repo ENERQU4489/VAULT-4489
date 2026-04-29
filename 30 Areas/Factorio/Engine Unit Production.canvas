@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"iron_plate","type":"text","text":"### 🩶 Żelazna płyta\n(Iron Plate)","x":200,"y":100,"width":200,"height":100,"color":"1"},
+		{"id":"steel_smelting","type":"text","text":"### 🔩 Przetop Stali\n(Steel Smelting)\n*5x Iron Plate + Coal*","x":500,"y":-100,"width":220,"height":120,"color":"1"},
+		{"id":"gear_factory","type":"text","text":"### ⚙️ Koła zębate\n(Iron Gear Wheel)\n*2x Iron Plate*","x":500,"y":100,"width":220,"height":100,"color":"1"},
+		{"id":"pipe_factory","type":"text","text":"### 🧪 Rura\n(Pipe)\n*1x Iron Plate*","x":500,"y":250,"width":220,"height":100,"color":"1"},
+		{"id":"engine_unit","type":"text","text":"# 🚂 Silnik\n**(Engine Unit)**\n\n1x Steel Plate\n1x Iron Gear\n2x Pipe","x":850,"y":75,"width":300,"height":150,"color":"5"}
+	],
+	"edges":[
+		{"id":"e4","fromNode":"iron_plate","fromSide":"right","toNode":"steel_smelting","toSide":"left"},
+		{"id":"e6","fromNode":"iron_plate","fromSide":"right","toNode":"gear_factory","toSide":"left"},
+		{"id":"e7","fromNode":"iron_plate","fromSide":"right","toNode":"pipe_factory","toSide":"left"},
+		{"id":"e8","fromNode":"steel_smelting","fromSide":"right","toNode":"engine_unit","toSide":"left"},
+		{"id":"e9","fromNode":"gear_factory","fromSide":"right","toNode":"engine_unit","toSide":"left"},
+		{"id":"e10","fromNode":"pipe_factory","fromSide":"right","toNode":"engine_unit","toSide":"left"}
+	]
+}

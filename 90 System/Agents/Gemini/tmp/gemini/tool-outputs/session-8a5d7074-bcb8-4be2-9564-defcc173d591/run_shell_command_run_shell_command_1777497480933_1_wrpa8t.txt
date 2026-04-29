@@ -1,0 +1,3 @@
+{
+  "output": "Output: \nC:\\Users\\micha\\Desktop\\GEMINI\\20 Projects\\KOYA-APP\\App.xaml(69,77): error MC3072: The property 'Background' does not exist in XML namespace 'http://schemas.microsoft.com/winfx/2006/xaml/presentation'. Line 69 Position 77.\n\nThe build failed. Fix the build errors and run again.\nExit Code: 1\nProcess Group PGID: 7876"
+}

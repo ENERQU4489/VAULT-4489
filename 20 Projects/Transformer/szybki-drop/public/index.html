@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szybki Drop | Panel</title>
+    <style>
+        :root {
+            --bg: #f4f4f9; --card: #ffffff; --text: #2d3748; --text-muted: #718096;
+            --primary: #4299e1; --primary-hover: #3182ce;
+            --success: #48bb78; --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background: var(--card); padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); max-width: 480px; width: 100%; text-align: center; }
+        h2 { margin: 0 0 5px 0; font-size: 22px; }
+        p.subtitle { color: var(--text-muted); font-size: 13px; margin-bottom: 25px; }
+        
+        .network-panel { background: #f7fafc; border: 1px solid var(--border); border-radius: 8px; padding: 15px; margin-bottom: 25px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
+        .stat-box { font-size: 12px; color: var(--text-muted); }
+        .stat-value { font-size: 16px; font-weight: bold; color: var(--text); margin-top: 5px; }
+        .test-btn { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 8px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; width: 100%; transition: 0.2s; }
+        .test-btn:hover { background: var(--primary); color: white; }
+        .test-btn:disabled { border-color: #cbd5e0; color: #cbd5e0; cursor: not-allowed; background: transparent; }
+
+        .drop-zone { border: 2px dashed var(--primary); border-radius: 8px; padding: 40px 20px; cursor: pointer; transition: 0.2s; background: #ebf8ff; margin-bottom: 20px; }
+        .drop-zone:hover, .drop-zone.dragover { background: #bee3f8; }
+        .drop-zone-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+        .drop-zone-text { font-size: 15px; font-weight: 500; color: var(--primary-hover); }
+        #fileInput { display: none; }
+
+        button.action-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.2s; }
+        button.action-btn:hover { background: var(--primary-hover); }
+        button.action-btn:disabled { background: #cbd5e0; cursor: not-allowed; }
+
+        .progress-wrapper { display: none; margin-top: 20px; text-align: left; }
+        .progress-bg { background: var(--border); border-radius: 6px; height: 16px; width: 100%; overflow: hidden; }
+        .progress-fill { background: var(--success); height: 100%; width: 0%; transition: width 0.2s ease; }
+        .progress-stats { display: flex; justify-content: space-between; font-size: 12px; margin-top: 5px; color: var(--text-muted); }
+
+        #result { margin-top: 20px; }
+        .result-box { background: #f0fff4; border: 1px solid #9ae6b4; padding: 15px; border-radius: 8px; text-align: center; }
+        .result-box a { color: var(--success); font-weight: bold; text-decoration: none; word-break: break-all; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Szybki Drop</h2>
+    <p class="subtitle">Wgraj plik. Wyparuje on z serwera po 1 godzinie.</p>
+
+    <div class="network-panel">
+        <div class="stats-grid">
+            <div class="stat-box">Ping<div class="stat-value" id="pingVal">- ms</div></div>
+            <div class="stat-box">Download<div class="stat-value" id="dlVal">- MB/s</div></div>
+            <div class="stat-box">Upload<div class="stat-value" id="ulVal">- MB/s</div></div>
+        </div>
+        <button class="test-btn" id="runTestBtn" onclick="runNetworkTest()">Rozpocznij Speed Test (10s)</button>
+    </div>
+    
+    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <span class="drop-zone-icon">☁️</span>
+        <span class="drop-zone-text" id="dropZoneText">Kliknij lub upuść plik tutaj</span>
+        <input type="file" id="fileInput" onchange="handleFileSelect()">
+    </div>
+
+    <button class="action-btn" id="uploadBtn" onclick="uploadFile()">Wygeneruj Link</button>
+    
+    <div class="progress-wrapper" id="progressWrapper">
+        <div class="progress-bg"><div class="progress-fill" id="progressBar"></div></div>
+        <div class="progress-stats">
+            <span id="speedStat">0 MB/s</span>
+            <span id="percentStat">0%</span>
+        </div>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    // --- 1. PRAWDZIWY 10-SEKUNDOWY SPEED TEST ---
+    async function runNetworkTest() {
+        const btn = document.getElementById('runTestBtn');
+        const pingVal = document.getElementById('pingVal');
+        const dlVal = document.getElementById('dlVal');
+        const ulVal = document.getElementById('ulVal');
+
+        btn.disabled = true;
+        pingVal.innerText = "Test..."; dlVal.innerText = "..."; ulVal.innerText = "...";
+
+        try {
+            // 1. PING (Testuje opóźnienie)
+            btn.innerText = "Testowanie Pingu...";
+            const startPing = performance.now();
+            await fetch('/api/ping?t=' + Date.now());
+            pingVal.innerText = Math.round(performance.now() - startPing) + " ms";
+
+            // 2. DOWNLOAD (Strumieniowanie z serwera dokładnie przez 10 sekund)
+            btn.innerText = "Testowanie pobierania (10s)...";
+            const dlRes = await fetch('/api/speedtest/download?t=' + Date.now());
+            const reader = dlRes.body.getReader(); // Kurek do strumienia
+            
+            const startDl = performance.now();
+            let loadedDlBytes = 0;
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break; // W razie gdyby serwer sam zakończył
+                
+                loadedDlBytes += value.length;
+                const elapsed = performance.now() - startDl;
+                
+                // Aktualizujemy wynik na żywo
+                dlVal.innerText = ((loadedDlBytes / (elapsed / 1000)) / (1024 * 1024)).toFixed(1) + " MB/s";
+
+                // Ucinamy strumień równo po 10 sekundach
+                if (elapsed >= 10000) {
+                    reader.cancel();
+                    break;
+                }
+            }
+
+            // 3. UPLOAD (Wysyłanie porcji danych w pętli przez 10 sekund)
+            btn.innerText = "Testowanie wysyłania (10s)...";
+            // Przygotowujemy sztuczny plik 25MB żeby zbytnio nie obciążać RAM-u
+            const chunkData = new Blob([new Uint8Array(25 * 1024 * 1024)]); 
+            let totalUploaded = 0;
+            const startUl = performance.now();
+
+            // Pętla odpala się, dopóki całkowity czas nie przekroczy 10 sekund
+            while (performance.now() - startUl < 10000) {
+                await new Promise((resolve) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.upload.onprogress = (e) => {
+                        const elapsed = performance.now() - startUl;
+                        const currentTotal = totalUploaded + e.loaded;
+                        
+                        // Obliczanie prędkości na żywo
+                        ulVal.innerText = ((currentTotal / (elapsed / 1000)) / (1024 * 1024)).toFixed(1) + " MB/s";
+                        
+                        // Odcięcie po upływie 10 sekund
+                        if (elapsed >= 10000) {
+                            xhr.abort();
+                            resolve(); 
+                        }
+                    };
+                    
+                    xhr.onload = () => { totalUploaded += 25 * 1024 * 1024; resolve(); };
+                    xhr.onerror = () => resolve();
+                    xhr.onabort = () => resolve(); // Reakcja na nasz xhr.abort() z góry
+                    
+                    xhr.open('POST', '/api/speedtest/upload?t=' + Date.now());
+                    xhr.send(chunkData);
+                });
+            }
+
+        } catch (e) {
+            console.error("Błąd testu sieci:", e);
+            pingVal.innerText = "Błąd"; dlVal.innerText = "Błąd"; ulVal.innerText = "Błąd";
+        }
+
+        btn.innerText = "Ponów Speed Test";
+        btn.disabled = false;
+    }
+
+    // --- 2. DRAG & DROP ---
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const dropZoneText = document.getElementById('dropZoneText');
+    let selectedFile = null;
+
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eName => {
+        dropZone.addEventListener(eName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+    });
+
+    ['dragenter', 'dragover'].forEach(eName => dropZone.classList.add('dragover'));
+    ['dragleave', 'drop'].forEach(eName => dropZone.classList.remove('dragover'));
+
+    dropZone.addEventListener('drop', e => {
+        if (e.dataTransfer.files.length) { fileInput.files = e.dataTransfer.files; handleFileSelect(); }
+    });
+
+    function handleFileSelect() {
+        if (fileInput.files.length > 0) {
+            selectedFile = fileInput.files[0];
+            dropZoneText.innerText = `${selectedFile.name} (${(selectedFile.size / (1024*1024)).toFixed(1)} MB)`;
+        }
+    }
+
+    // --- 3. WGRYWANIE PLIKU ---
+    function uploadFile() {
+        if (!selectedFile) return alert('Najpierw wybierz plik!');
+        
+        const uploadBtn = document.getElementById('uploadBtn');
+        const progressWrapper = document.getElementById('progressWrapper');
+        const progressBar = document.getElementById('progressBar');
+        const speedStat = document.getElementById('speedStat');
+        const percentStat = document.getElementById('percentStat');
+        const resultDiv = document.getElementById('result');
+
+        uploadBtn.disabled = true;
+        resultDiv.innerHTML = '';
+        progressWrapper.style.display = 'block';
+        
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
+        const xhr = new XMLHttpRequest();
+        let lastLoaded = 0; let lastTime = Date.now();
+
+        xhr.upload.onprogress = (e) => {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                progressBar.style.width = percent + '%';
+                percentStat.innerText = percent + '%';
+
+                const now = Date.now();
+                const diffTime = (now - lastTime) / 1000;
+                if (diffTime >= 0.5) {
+                    const speed = ((e.loaded - lastLoaded) / diffTime) / (1024 * 1024);
+                    speedStat.innerText = speed.toFixed(1) + ' MB/s';
+                    lastLoaded = e.loaded; lastTime = now;
+                }
+            }
+        };
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                progressWrapper.style.display = 'none';
+                resultDiv.innerHTML = `
+                    <div class="result-box">
+                        <div style="font-size:13px; color:#48bb78; margin-bottom:8px;">Plik gotowy do pobrania:</div>
+                        <a href="${data.link}" target="_blank">${data.link}</a><br><br>
+                        <button class="action-btn" style="background:#48bb78; padding:8px; font-size:13px;" onclick="navigator.clipboard.writeText('${data.link}')">Kopiuj do schowka</button>
+                    </div>`;
+                selectedFile = null; fileInput.value = ''; dropZoneText.innerText = "Kliknij lub upuść plik tutaj";
+            } else {
+                resultDiv.innerHTML = `<span style="color:red">Błąd: ${xhr.statusText}</span>`;
+            }
+            uploadBtn.disabled = false;
+        };
+
+        xhr.open('POST', '/upload', true);
+        xhr.send(formData);
+    }
+</script>
+</body>
+</html>

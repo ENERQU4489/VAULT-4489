@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pobierz plik | Szybki Drop</title>
+    <style>
+        :root {
+            --bg: #f4f4f9; --card: #ffffff; --text: #2d3748; --text-muted: #718096;
+            --primary: #48bb78; --primary-hover: #38a169;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background: var(--card); padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); max-width: 400px; width: 100%; text-align: center; }
+        
+        .icon { font-size: 48px; margin-bottom: 10px; }
+        .filename { font-size: 18px; font-weight: 600; margin-bottom: 5px; word-break: break-all; }
+        .filesize { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
+        
+        button.action-btn { background: var(--primary); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.2s; }
+        button.action-btn:hover { background: var(--primary-hover); }
+        button.action-btn:disabled { background: #cbd5e0; cursor: not-allowed; }
+
+        .progress-wrapper { display: none; margin-top: 20px; text-align: left; }
+        .progress-bg { background: var(--border); border-radius: 6px; height: 16px; width: 100%; overflow: hidden; }
+        .progress-fill { background: var(--primary); height: 100%; width: 0%; transition: width 0.2s ease; }
+        .progress-stats { display: flex; justify-content: space-between; font-size: 12px; margin-top: 5px; color: var(--text-muted); }
+        .status-msg { margin-top: 15px; font-size: 14px; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+<div class="card" id="mainContainer">
+    <div id="loading">Wczytywanie...</div>
+    
+    <div id="fileInfo" style="display: none;">
+        <div class="icon">📦</div>
+        <div class="filename" id="fileName">plik.ext</div>
+        <div class="filesize" id="fileSize">0 MB</div>
+        
+        <button class="action-btn" id="downloadBtn" onclick="startDownload()">Pobierz teraz</button>
+        
+        <div class="progress-wrapper" id="progressWrapper">
+            <div class="progress-bg"><div class="progress-fill" id="progressBar"></div></div>
+            <div class="progress-stats">
+                <span id="speedStat">0 MB/s</span>
+                <span id="percentStat">0%</span>
+            </div>
+            <div class="status-msg" id="statusMsg"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const fileId = window.location.pathname.split('/').pop();
+    let globalFileName = 'pobrany_plik';
+
+    // Pobieranie info o pliku przy ładowaniu
+    async function init() {
+        try {
+            const res = await fetch(`/api/info/${fileId}`);
+            const data = await res.json();
+            document.getElementById('loading').style.display = 'none';
+
+            if (res.ok) {
+                globalFileName = data.name;
+                document.getElementById('fileName').innerText = data.name;
+                document.getElementById('fileSize').innerText = (data.size / (1024 * 1024)).toFixed(2) + ' MB';
+                document.getElementById('fileInfo').style.display = 'block';
+            } else {
+                document.getElementById('mainContainer').innerHTML = `<p style="color:red; font-weight:bold;">${data.error}</p>`;
+            }
+        } catch (e) {
+            document.getElementById('mainContainer').innerHTML = `<p style="color:red; font-weight:bold;">Błąd serwera.</p>`;
+        }
+    }
+
+    // Pobieranie właściwe
+    function startDownload() {
+        const btn = document.getElementById('downloadBtn');
+        const progressWrapper = document.getElementById('progressWrapper');
+        const progressBar = document.getElementById('progressBar');
+        const speedStat = document.getElementById('speedStat');
+        const percentStat = document.getElementById('percentStat');
+        const statusMsg = document.getElementById('statusMsg');
+
+        btn.style.display = 'none';
+        progressWrapper.style.display = 'block';
+        statusMsg.innerText = "Pobieranie w tle...";
+
+        let lastLoaded = 0; let lastTime = Date.now();
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob'; 
+
+        xhr.onprogress = (e) => {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                progressBar.style.width = percent + '%';
+                percentStat.innerText = percent + '%';
+
+                const now = Date.now();
+                const diffTime = (now - lastTime) / 1000; 
+
+                if (diffTime >= 0.5) {
+                    const speed = ((e.loaded - lastLoaded) / diffTime) / (1024 * 1024);
+                    speedStat.innerText = speed.toFixed(1) + ' MB/s';
+                    lastLoaded = e.loaded; lastTime = now;
+                }
+            }
+        };
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                statusMsg.innerText = "Zapisywanie na dysk...";
+                speedStat.innerText = "Gotowe";
+                
+                const url = window.URL.createObjectURL(xhr.response);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = globalFileName;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+                
+                setTimeout(() => statusMsg.innerText = "Pobieranie zakończone!", 500);
+            } else {
+                statusMsg.style.color = "red";
+                statusMsg.innerText = "Błąd pobierania.";
+            }
+        };
+
+        xhr.open('GET', `/api/download/${fileId}`, true);
+        xhr.send();
+    }
+
+    window.onload = init;
+</script>
+</body>
+</html>

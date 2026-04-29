@@ -1,0 +1,16 @@
+[
+  {
+    "sessionId": "5398fafa-221e-4d07-abd3-6c7a2e032c53",
+    "messageId": 0,
+    "type": "user",
+    "message": "witaj",
+    "timestamp": "2026-04-25T16:14:57.834Z"
+  },
+  {
+    "sessionId": "5398fafa-221e-4d07-abd3-6c7a2e032c53",
+    "messageId": 1,
+    "type": "user",
+    "message": "proces isntlacji od nowa zaczyanmy",
+    "timestamp": "2026-04-25T16:15:28.912Z"
+  }
+]

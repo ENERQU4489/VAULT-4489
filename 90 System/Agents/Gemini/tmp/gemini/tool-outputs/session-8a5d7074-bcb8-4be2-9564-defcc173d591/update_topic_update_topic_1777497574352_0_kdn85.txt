@@ -1,0 +1,3 @@
+{
+  "output": "Current topic: \"Naprawa animacji i ikon UI\"\nTopic summary: Aplikacja się uruchomiła, ale Michał zgłosił problemy z animacjami i ikonkami. Przeglądam plik `MainWindow.xaml`, aby sprawdzić, jak zdefiniowane są przyciski i czy brakuje im stanów wizualnych lub animacji. Sprawdzę również, czy czcionka ikon (Segoe MDL2 Assets) jest poprawnie używana i czy możemy dodać płynne przejścia (Transitions), aby aplikacja wyglądała nowocześniej.\n\nStrategic Intent: Analiza i naprawa animacji oraz ikon w KOYA-APP."
+}

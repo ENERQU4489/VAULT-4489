@@ -1,0 +1,3 @@
+{
+  "output": "namespace KOYA_APP\n{\n    public interface IStreamDeckAction\n    {\n        string Name { get; }\n        string Description { get; }\n        string Icon { get; }\n        void Execute(); // Dla klikniecia\n        void ExecuteAnalog(bool direction); // true = w prawo / glosniej, false = w lewo / ciszej\n    }\n}\n"
+}

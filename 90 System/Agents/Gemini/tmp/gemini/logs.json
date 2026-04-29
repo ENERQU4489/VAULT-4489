@@ -754,5 +754,551 @@
     "type": "user",
     "message": "do roboty",
     "timestamp": "2026-04-24T21:34:30.692Z"
+  },
+  {
+    "sessionId": "e4408995-fba4-411c-a764-1ca72a124474",
+    "messageId": 17,
+    "type": "user",
+    "message": "sklonujmy go",
+    "timestamp": "2026-04-24T21:35:34.195Z"
+  },
+  {
+    "sessionId": "e4408995-fba4-411c-a764-1ca72a124474",
+    "messageId": 18,
+    "type": "user",
+    "message": "ale jak to wrzucic na git i na telefonie odpalic",
+    "timestamp": "2026-04-24T21:36:01.236Z"
+  },
+  {
+    "sessionId": "e4408995-fba4-411c-a764-1ca72a124474",
+    "messageId": 19,
+    "type": "user",
+    "message": "taki mam link https://github.com/ENERQU4489?tab=repositories reszte ogarnij ty",
+    "timestamp": "2026-04-24T21:36:25.269Z"
+  },
+  {
+    "sessionId": "e4408995-fba4-411c-a764-1ca72a124474",
+    "messageId": 20,
+    "type": "user",
+    "message": "/quit",
+    "timestamp": "2026-04-24T21:38:45.456Z"
+  },
+  {
+    "sessionId": "6eed10ff-0488-40f1-80d6-a1662d1ac628",
+    "messageId": 0,
+    "type": "user",
+    "message": "siema",
+    "timestamp": "2026-04-25T15:06:50.098Z"
+  },
+  {
+    "sessionId": "6eed10ff-0488-40f1-80d6-a1662d1ac628",
+    "messageId": 1,
+    "type": "user",
+    "message": "masz zadanie, w folderze 30 areas zrobilem folder dla factorio i tam trzeba zrobic canvas z mapa powstawania Zielonych butelek z exp, proces jest dosc skomplikowany a my go poukladamy, ogolnie wyglada to tak ze butelki finalne robi sie z tasmociagu oraz podajnika a podajnik robi sie z iron plate oraz ireon gear wheal oraz electronic cicuit a tasmociag z iron plate i iron gear wheal, poukladaj to w mape w canvas tak zeby mialo sens",
+    "timestamp": "2026-04-25T15:09:26.899Z"
+  },
+  {
+    "sessionId": "6eed10ff-0488-40f1-80d6-a1662d1ac628",
+    "messageId": 2,
+    "type": "user",
+    "message": "dobra, obok dodaj chain produkcyjny czerwonych butelek: one z medzianej płytki i iron gear wheal",
+    "timestamp": "2026-04-25T15:11:23.110Z"
+  },
+  {
+    "sessionId": "6eed10ff-0488-40f1-80d6-a1662d1ac628",
+    "messageId": 3,
+    "type": "user",
+    "message": "na sam koneic one te 2 butelki wchodza do research laba",
+    "timestamp": "2026-04-25T15:11:58.271Z"
+  },
+  {
+    "sessionId": "6eed10ff-0488-40f1-80d6-a1662d1ac628",
+    "messageId": 4,
+    "type": "user",
+    "message": "jest sprawa, chce udostepnioc ten system koledze z gemini i sejfem ale nei chche swojej persony twojje przesylac? myslisz ze na bazie tego jak ty zostałas skonfiugoprwana mozesz stworzyc w projektach folder o nazwei GEMINI-OUT w ktoreytm bedzie cala struktura bootstrap itp ale da swiezego modelu?",
+    "timestamp": "2026-04-25T16:17:22.099Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 0,
+    "type": "user",
+    "message": "siema stwórz na pulpicie taki folder: C:\\Users\\micha\\Desktop\\GEMINI\\\n│\n├── 00 Daily/               # Surowe logi sesji (codzienne notatki)\n├── 10 Inbox/               # Tu wpada wszystko do posortowania\n├── 20 Projects/            # Tu trzymasz projekty i foldery ze skillem (np. spotify-player)\n├── 30 Areas/               # Stałe obszary życia (np. praca, zdrowie)\n├── 40 Templates/           # Szablony notatek\n│\n└── 90 System/              # \"Mózg\" Twojego agenta\n    ├── AGENTS.md           # Twoja \"Konstytucja\" - jak działasz\n    ├── BOOTSTRAP.md        # Protokół startowy (usuwany po pierwszej inicjacji)\n    ├── HEARTBEAT.md        # Harmonogram proaktywnych zadań\n    ├── IDENTITY.md         # Tożsamość agenta (imię, vibe, emoji)\n    ├── MEMORY.md           # Skrystalizowana wiedza (długoterminowa pamięć)\n    ├── SOUL.md             # Wartości, granice, etyka\n    ├── TOOLS.md            # Rejestr narzędzi i preferencji\n    ├── USER.md             # Kontekst użytkownika (Twoje dane)\n    └── Skills/             # Katalog na Twoje moduły (.skill / SKILL.md)\n        └── spotify-player/ # Przykład zainstalowanego skilla",
+    "timestamp": "2026-04-25T16:21:45.129Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 1,
+    "type": "user",
+    "message": "masz na desktop stworzyc calkiem nowy folder o tej strukturze bez opisów ani zawartosci: C:\\Users\\micha\\Desktop\\GEMINI\\\n│\n├── 00 Daily/               # Surowe logi sesji (codzienne notatki)\n├── 10 Inbox/               # Tu wpada wszystko do posortowania\n├── 20 Projects/            # Tu trzymasz projekty i foldery ze skillem (np. spotify-player)\n├── 30 Areas/               # Stałe obszary życia (np. praca, zdrowie)\n├── 40 Templates/           # Szablony notatek\n│\n└── 90 System/              # \"Mózg\" Twojego agenta\n    ├── AGENTS.md           # Twoja \"Konstytucja\" - jak działasz\n    ├── BOOTSTRAP.md        # Protokół startowy (usuwany po pierwszej inicjacji)\n    ├── HEARTBEAT.md        # Harmonogram proaktywnych zadań\n    ├── IDENTITY.md         # Tożsamość agenta (imię, vibe, emoji)\n    ├── MEMORY.md           # Skrystalizowana wiedza (długoterminowa pamięć)\n    ├── SOUL.md             # Wartości, granice, etyka\n    ├── TOOLS.md            # Rejestr narzędzi i preferencji\n    ├── USER.md             # Kontekst użytkownika (Twoje dane)\n    └── Skills/             # Katalog na Twoje moduły (.skill / SKILL.md)\n        └── spotify-player/ # Przykład zainstalowanego skilla",
+    "timestamp": "2026-04-25T16:22:47.043Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 2,
+    "type": "user",
+    "message": "stworz to na Desktop/agent",
+    "timestamp": "2026-04-25T16:23:40.668Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 3,
+    "type": "user",
+    "message": "a skąd ty wczytujesz swoj system prompt? pomijajac narazie inne zadania odpowiedz",
+    "timestamp": "2026-04-25T16:25:49.751Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 4,
+    "type": "user",
+    "message": "czyli który plik ci zlecił odczytanie tyhc plików md z persona?",
+    "timestamp": "2026-04-25T16:26:41.584Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 5,
+    "type": "user",
+    "message": "aa dobra a jakis jescze jest kluczowy?",
+    "timestamp": "2026-04-25T16:27:07.081Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 6,
+    "type": "user",
+    "message": "czy bez @c:/users/micha/.gemini/gemini.md nadal bedziesz działac jak vault gpt w tym workspace?",
+    "timestamp": "2026-04-25T16:27:56.559Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 7,
+    "type": "user",
+    "message": "sprawdz czy w agent na desktop jest wszystko zeby odpalic nwoego agenta",
+    "timestamp": "2026-04-25T16:38:22.273Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 8,
+    "type": "user",
+    "message": "to ma byc noworodek",
+    "timestamp": "2026-04-25T16:39:33.803Z"
+  },
+  {
+    "sessionId": "d6c87f12-a20c-4f0c-afe7-503111b1d8a0",
+    "messageId": 9,
+    "type": "user",
+    "message": "dodaj ten fodler agent do github jako vault-agent poprstu i nic wiecej nie rob",
+    "timestamp": "2026-04-25T16:43:26.793Z"
+  },
+  {
+    "sessionId": "9111541d-1e5f-41f4-9193-c8b2258d631d",
+    "messageId": 0,
+    "type": "user",
+    "message": "zrób w factorio w areas canvas z schematem tworzenia engine unit od zera do output engine unit",
+    "timestamp": "2026-04-25T18:49:24.977Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 0,
+    "type": "user",
+    "message": "witaj,",
+    "timestamp": "2026-04-26T17:43:06.503Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 1,
+    "type": "user",
+    "message": "mamy do zrobienia projekt, albowiem chciałbym stworzyc nakładke na gemini cli ładną w przeglądarce. UI proste pole do wpisania prompt itp",
+    "timestamp": "2026-04-26T17:43:59.672Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 2,
+    "type": "user",
+    "message": "pasuje idealnie",
+    "timestamp": "2026-04-26T17:52:35.443Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 3,
+    "type": "user",
+    "message": "nie działa strona",
+    "timestamp": "2026-04-26T17:56:59.328Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 4,
+    "type": "user",
+    "message": "strona pokazuje deafgult str",
+    "timestamp": "2026-04-26T17:59:42.060Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 5,
+    "type": "user",
+    "message": "[plugin:vite:css] [postcss] It looks like you're trying to use `tailwindcss` directly as a PostCSS plugin. The PostCSS plugin has moved to a separate package, so to continue using Tailwind CSS with PostCSS you'll need to install `@tailwindcss/postcss` and update your PostCSS configuration.\n\nC:/Users/micha/Desktop/GEMINI/20 Projects/GeminiWebUI/client/src/index.css:undefined:null\n\n    at ft (C:\\Users\\micha\\Desktop\\GEMINI\\20 Projects\\GeminiWebUI\\client\\node_modules\\tailwindcss\\dist\\lib.js:38:1643)\n    at LazyResult.runOnRoot (C:\\Users\\micha\\Desktop\\GEMINI\\20 Projects\\GeminiWebUI\\client\\node_modules\\postcss\\lib\\lazy-result.js:361:16)\n    at LazyResult.runAsync (C:\\Users\\micha\\Desktop\\GEMINI\\20 Projects\\GeminiWebUI\\client\\node_modules\\postcss\\lib\\lazy-result.js:290:26)\n    at LazyResult.async (C:\\Users\\micha\\Desktop\\GEMINI\\20 Projects\\GeminiWebUI\\client\\node_modules\\postcss\\lib\\lazy-result.js:192:30)\n    at LazyResult.then (C:\\Users\\micha\\Desktop\\GEMINI\\20 Projects\\GeminiWebUI\\client\\node_modules\\postcss\\lib\\lazy-result.js:446:17)\n\nClick outside, press Esc key, or fix the code to dismiss.",
+    "timestamp": "2026-04-26T18:00:48.431Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 6,
+    "type": "user",
+    "message": "Looks like there’s a problem with this site\n\nFirefox can’t connect to the server at localhost:5173\nWhat can you do about it?\n\nTry connecting on a different device. Check your modem or router. Disconnect and reconnect to Wi-Fi.",
+    "timestamp": "2026-04-26T18:01:15.373Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 7,
+    "type": "user",
+    "message": "dalej sie nie ładuje",
+    "timestamp": "2026-04-26T18:01:39.046Z"
+  },
+  {
+    "sessionId": "5bf5c0c3-9744-4c66-b2bd-538291a053bf",
+    "messageId": 8,
+    "type": "user",
+    "message": "narazie koniec, zapisz prace",
+    "timestamp": "2026-04-26T18:02:19.192Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 0,
+    "type": "user",
+    "message": "witaj",
+    "timestamp": "2026-04-29T20:09:38.382Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 1,
+    "type": "user",
+    "message": "dodaj C:\\Users\\micha\\source\\repos\\KOYA-APP\\KOYA-APP do githuba",
+    "timestamp": "2026-04-29T20:22:21.300Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 2,
+    "type": "user",
+    "message": "FAZA 1: Czyszczenie i Fundamenty (Priorytet: 0 błędów)\n\nZanim dodamy nowe bajery, musimy sprawić, by to, co już masz, przestało świecić na czerwono.\n\n    Ujednolicenie „Adresów” (Namespace): Ręczne sprawdzenie każdego pliku .cs. W każdym, bez wyjątku, na samej górze musi widnieć namespace KOYA_APP. To usunie błędy typu \"nie znaleziono typu lub nazwy\".\n\n    Naprawa połączenia z internetem (NuGet): Wejście w ustawienia Visual Studio, dodanie źródła https://api.nuget.org/v3/index.json i zainstalowanie biblioteki NAudio. Bez tego funkcje mikrofonu i głośnika nie ruszą.\n\n    Naprawa interfejsu (IStreamDeckAction): Upewnienie się, że ten jeden plik jest \"publiczny\", aby każda inna klasa mogła z niego korzystać.\n\nFAZA 2: Budowa Systemowego „Arsenału”\n\nDodanie nowych funkcji, które nie wymagają zewnętrznych bibliotek (są bezpieczne i zawsze działają).\n\n    Nawigacja i System: Stworzenie klas dla:\n\n        Alt+Tab: Szybkie przełączanie okien.\n\n        Menedżer Zadań: Bezpośrednie wywołanie taskmgr.exe.\n\n        Zamknij Okno: Symulacja Alt+F4.\n\n        Fullscreen: Symulacja klawisza F11.\n\n    Zaawansowane Audio:\n\n        Mute Głośnika: Wybór konkretnego urządzenia wyjściowego.\n\n        Mute Mikrofonu: Wybór konkretnego wejścia (np. oddzielnie mikrofon z headsetu i oddzielnie biurkowy).\n\nFAZA 3: Inteligentny ActionPicker (Mózg Konfiguracji)\n\nAktualizacja okna wyboru tak, aby było \"wszystkowiedzące\".\n\n    Logika Warunkowa: Jeśli wybierzesz \"Otwórz aplikację\", wyskakuje okno wyboru pliku. Jeśli wybierzesz \"Mikrofon\", wyskakuje lista Twoich urządzeń audio.\n\n    Walidacja: Dodanie zabezpieczeń (try-catch), aby program nie wyłączał się, gdy np. odłączysz mikrofon w trakcie pracy.\n\nFAZA 4: „Super Wygląd” (Design & UI)\n\nGdy wszystko będzie technicznie sprawne, zmienimy nudne szare okno w nowoczesny panel.\n\n    Efekt Przezroczystości (Acrylic/Glass): Ustawienie tła okna na półprzezroczyste z rozmytym tłem.\n\n    Gradienty i Zaokrąglenia: Każdy przycisk otrzyma delikatny gradient i mocno zaokrąglone rogi (CornerRadius).\n\n    Animacje (Visual States): * Przycisk delikatnie się powiększa po najechaniu myszką.\n\n        Kolor obramowania zmienia się (pulsuje), gdy akcja jest przypisana.\n\n    Ikony Systemowe: Zamiast samego tekstu (np. \"Kopiuj\"), dodamy ikony z czcionki Segoe MDL2 (np. ikona nożyczek, głośnika, aparatu).\n\nFAZA 5: Finalizacja i Zapisywanie\n\n    Serializacja JSON: Dodanie funkcji, która zapisuje Twoje ustawienia do pliku. Dzięki temu po ponownym włączeniu komputera nie będziesz musiał od nowa przypisywać aplikacji i mikrofonów.\n\n    Autostart: Opcja, by program startował zminimalizowany do zasobnika systemowego (tray) obok zegara.",
+    "timestamp": "2026-04-29T20:26:59.194Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 3,
+    "type": "user",
+    "message": "przenies narazie moze calosc do vaulta do projektów? moze git clone tego co wrzucuklsmy i na tym robimy?",
+    "timestamp": "2026-04-29T20:33:17.419Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 4,
+    "type": "user",
+    "message": "faza druga, dodajemy wszystko po kolei",
+    "timestamp": "2026-04-29T20:35:35.861Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 5,
+    "type": "user",
+    "message": "comi i push",
+    "timestamp": "2026-04-29T20:36:46.630Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 6,
+    "type": "user",
+    "message": "sprawdzmy czy wszystko działa, odpal apliakcje i faza 3",
+    "timestamp": "2026-04-29T20:41:48.620Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 7,
+    "type": "user",
+    "message": "najpierw jescze dodajmy opjce dodania w actin picker custom skrótu klawiszowego wykonanego po klinmieicu na stream decku",
+    "timestamp": "2026-04-29T20:46:12.935Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 8,
+    "type": "user",
+    "message": "dodaj push do githubn",
+    "timestamp": "2026-04-29T20:47:08.395Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 9,
+    "type": "user",
+    "message": "odpal aplikacje bo nie widze wygldu",
+    "timestamp": "2026-04-29T20:48:11.491Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 10,
+    "type": "user",
+    "message": "robimy dalej",
+    "timestamp": "2026-04-29T20:52:24.603Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 11,
+    "type": "user",
+    "message": "wazna zmiana, klaiwsze są 4x3 a po prawej zamiast 5 kolumyn są 2 potencjometry na fizycznym urzadzeniu'",
+    "timestamp": "2026-04-29T20:53:33.660Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 12,
+    "type": "user",
+    "message": "dodaj ze po klik na potencjmetr mozna wybrac akcje jakie są z nim kompatybine np głosnosc mirkofonu albo glosnika, jasnosc ekranu (wybór ekranu) przyblizenie strony www itp",
+    "timestamp": "2026-04-29T20:54:57.731Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 13,
+    "type": "user",
+    "message": "odpal apliakcje najpierw",
+    "timestamp": "2026-04-29T20:56:26.815Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 14,
+    "type": "user",
+    "message": "uzyjmy czcionki Audiowide , kolorstyka tylko bialy i czarny, glassmorhpism animacje itp. opal tez tą aplikacje bo nie widze jej",
+    "timestamp": "2026-04-29T20:57:12.182Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 15,
+    "type": "user",
+    "message": "odpal ją najpierw",
+    "timestamp": "2026-04-29T20:58:34.257Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 16,
+    "type": "user",
+    "message": "potencjometr nie ma miec opcji jak zrzut ekranu, tylko te które wyamgaja pokrętła. popraw tez wygald i to ze potencjoemtr ma jakies ponakladane kwadraty",
+    "timestamp": "2026-04-29T21:00:09.251Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 17,
+    "type": "user",
+    "message": "ikony nie wczytuja się, zmien czcionki i popraw wresciue okno wyboru akcji",
+    "timestamp": "2026-04-29T21:01:30.526Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 18,
+    "type": "user",
+    "message": "działamy dalej, porpaw wyglad wyboru akcji, wzoruj sie na https://koya-shop.pl/",
+    "timestamp": "2026-04-29T21:05:48.882Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 19,
+    "type": "user",
+    "message": "dalej rób",
+    "timestamp": "2026-04-29T21:12:47.147Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 20,
+    "type": "user",
+    "message": "zacinasz się cos",
+    "timestamp": "2026-04-29T21:14:31.078Z"
+  },
+  {
+    "sessionId": "812587e5-77b9-4852-ae36-d4b0bc3b3fdd",
+    "messageId": 21,
+    "type": "user",
+    "message": "wracamy do pracy",
+    "timestamp": "2026-04-29T21:15:45.430Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 0,
+    "type": "user",
+    "message": "siema, wracamy do pracy z aplikacja koya",
+    "timestamp": "2026-04-29T21:16:21.000Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 1,
+    "type": "user",
+    "message": "odpal apliakcje i spraedzmy błedy",
+    "timestamp": "2026-04-29T21:17:55.890Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 2,
+    "type": "user",
+    "message": "dobra działa, napraw teraz animacje i ikonki",
+    "timestamp": "2026-04-29T21:19:28.516Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 3,
+    "type": "user",
+    "message": "nie widac jescze jak zaznacze akcje w action selekcji i zmien czcionki na audio wide i popraw kolorstyke na czarny głowny i biały. dodaj efekty blurr itp zmien nazwer koya konsole na KOYA",
+    "timestamp": "2026-04-29T21:23:25.242Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 4,
+    "type": "user",
+    "message": "odpal ją",
+    "timestamp": "2026-04-29T21:24:31.978Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 5,
+    "type": "user",
+    "message": "nie widze jej na pasku itp",
+    "timestamp": "2026-04-29T21:24:46.154Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 6,
+    "type": "user",
+    "message": "dodaj do apl;ikacji animacje startup pojawianie sie literek K O Y A na czarnym tle potem błysk i pojaiwenie sie głownego okna",
+    "timestamp": "2026-04-29T21:25:52.676Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 7,
+    "type": "user",
+    "message": "aplikacja nie startuje dalej",
+    "timestamp": "2026-04-29T21:26:23.588Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 8,
+    "type": "user",
+    "message": "ładna animacja ale nic sie nie da kliknac itp na aplikacji",
+    "timestamp": "2026-04-29T21:27:45.926Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 9,
+    "type": "user",
+    "message": "powieksz 2 knob zeby byly romziaru przycisko i roweno daj wsyzstko, zaokargli krawedzie",
+    "timestamp": "2026-04-29T21:28:38.488Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 10,
+    "type": "user",
+    "message": "potencjometry rozjechane jak elipsy, przyciski lekko zaokarogli",
+    "timestamp": "2026-04-29T21:29:22.340Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 11,
+    "type": "user",
+    "message": "usun ten mocny kontrast i ogolnie popraw wyglad bo teraz taki xray jest a ma byc clean glass, dodaj ze jak jest akcja odpaleie aplikacji to jej ikona jest na przycisku",
+    "timestamp": "2026-04-29T21:30:22.873Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 12,
+    "type": "user",
+    "message": "apliakcaj sie wysypała",
+    "timestamp": "2026-04-29T21:31:09.370Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 13,
+    "type": "user",
+    "message": "ikona aplikacji mniejsza tak 2x",
+    "timestamp": "2026-04-29T21:32:05.675Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 14,
+    "type": "user",
+    "message": "dalej za duze",
+    "timestamp": "2026-04-29T21:32:34.565Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 15,
+    "type": "user",
+    "message": "dodajmy prace w zasobniku w tle",
+    "timestamp": "2026-04-29T21:32:54.853Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 16,
+    "type": "user",
+    "message": "zrob aby przyciski były idealnei kwadratami",
+    "timestamp": "2026-04-29T21:33:27.143Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 17,
+    "type": "user",
+    "message": "apliakcja nie startuje, dodatkowo trzba dodac jej logo @C:\\Users\\micha\\Downloads\\logo.png",
+    "timestamp": "2026-04-29T21:36:07.644Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 18,
+    "type": "user",
+    "message": "nie mam jej",
+    "timestamp": "2026-04-29T21:37:57.085Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 19,
+    "type": "user",
+    "message": "nic nie ma nigdzie",
+    "timestamp": "2026-04-29T21:39:01.316Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 20,
+    "type": "user",
+    "message": "logo nie ładuje sie w zasobniku i na pasku zadan",
+    "timestamp": "2026-04-29T21:39:58.847Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 21,
+    "type": "user",
+    "message": "dobra, działa ikonka, teraz naprawiamy cały układ aplikacji bo przyciski to jakies prostokąty itp",
+    "timestamp": "2026-04-29T21:41:10.032Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 22,
+    "type": "user",
+    "message": "jest lepiej, zrob tak zeby aplikacja cieszyła oko bo teraz takie gównoi jest",
+    "timestamp": "2026-04-29T21:42:04.225Z"
+  },
+  {
+    "sessionId": "8a5d7074-bcb8-4be2-9564-defcc173d591",
+    "messageId": 23,
+    "type": "user",
+    "message": "podsumuj dzisiejsza prace na jutro",
+    "timestamp": "2026-04-29T21:45:20.853Z"
+  },
+  {
+    "sessionId": "9ac08a57-9286-405c-967e-f276427a54ef",
+    "messageId": 0,
+    "type": "user",
+    "message": "podsumuj dzisiejsza prace",
+    "timestamp": "2026-04-29T21:46:45.696Z"
+  },
+  {
+    "sessionId": "9ac08a57-9286-405c-967e-f276427a54ef",
+    "messageId": 1,
+    "type": "user",
+    "message": "podsumuj co działa a co nie w koya app bo to jedyne zadanie nrazie",
+    "timestamp": "2026-04-29T21:47:48.255Z"
+  },
+  {
+    "sessionId": "9ac08a57-9286-405c-967e-f276427a54ef",
+    "messageId": 2,
+    "type": "user",
+    "message": "zapisz to na jutro i zpuszuj na githuba aktuanlanb wersje",
+    "timestamp": "2026-04-29T21:48:59.729Z"
   }
 ]

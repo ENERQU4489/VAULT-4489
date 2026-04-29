@@ -22,6 +22,8 @@ Ten plik to esencja naszej współpracy. Filtrowana wiedza z sesji, która defin
 - **Styl pracy**: Bezpośredni, daje dużą autonomię asystentce ("dawaj do roboty").
 
 ## ⏳ OTWARTE KWESTIE
+- Rozwój projektu [[20 Projects/GeminiWebUI|Gemini Web UI]] – interfejs webowy dla CLI.
+- Debugowanie konfiguracji Tailwind v4 / Vite (problemy z portami i PostCSS).
 - Budowa bazy wiedzy w `40 Brain`.
 - Rozwój projektów merytorycznych w `20 Projects`.
 

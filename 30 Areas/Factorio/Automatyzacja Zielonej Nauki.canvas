@@ -1,0 +1,31 @@
+{
+	"nodes":[
+		{"id":"iron_plate","type":"text","text":"### 🩶 Żelazna Płyta\n(Iron Plate)","x":-120,"y":-360,"width":200,"height":100,"color":"1"},
+		{"id":"gear","type":"text","text":"⚙️ **Żelazne koło zębate**\n(Iron Gear Wheel)","x":510,"y":-440,"width":200,"height":80},
+		{"id":"belt","type":"text","text":"🛤️ **Taśmociąg**\n(Transport Belt)","x":820,"y":-760,"width":220,"height":100,"color":"3"},
+		{"id":"inserter","type":"text","text":"🏗️ **Podajnik**\n(Inserter)","x":840,"y":0,"width":220,"height":100,"color":"3"},
+		{"id":"circuit","type":"text","text":"🟢 **Obwód elektroniczny**\n(Electronic Circuit)","x":390,"y":0,"width":220,"height":100,"color":"4"},
+		{"id":"cable","type":"text","text":"🧶 **Miedziany kabel**\n(Copper Cable)","x":80,"y":210,"width":200,"height":80},
+		{"id":"copper_plate","type":"text","text":"### 🧡 Miedziana Płyta\n(Copper Plate)","x":-160,"y":-50,"width":200,"height":100,"color":"2"},
+		{"id":"red_science","type":"text","text":"# 🔴 Czerwona Butelka\n**(Automation Science Pack)**","x":1350,"y":-475,"width":300,"height":150,"color":"1"},
+		{"id":"green_science","type":"text","text":"# 🧪 Zielona Butelka\n**(Logistic Science Pack)**","x":1200,"y":-25,"width":300,"height":150,"color":"4"},
+		{"id":"lab","type":"text","text":"# 🔬 Laboratorium\n**(Research Lab)**","x":1920,"y":-200,"width":300,"height":200,"color":"5"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"iron_plate","fromSide":"right","toNode":"gear","toSide":"left"},
+		{"id":"e2","fromNode":"iron_plate","fromSide":"right","toNode":"belt","toSide":"left"},
+		{"id":"e3","fromNode":"iron_plate","fromSide":"right","toNode":"circuit","toSide":"left"},
+		{"id":"e4","fromNode":"iron_plate","fromSide":"right","toNode":"inserter","toSide":"left"},
+		{"id":"e5","fromNode":"copper_plate","fromSide":"right","toNode":"cable","toSide":"left"},
+		{"id":"e6","fromNode":"cable","fromSide":"right","toNode":"circuit","toSide":"left"},
+		{"id":"e7","fromNode":"gear","fromSide":"right","toNode":"belt","toSide":"left"},
+		{"id":"e8","fromNode":"gear","fromSide":"right","toNode":"inserter","toSide":"left"},
+		{"id":"e9","fromNode":"circuit","fromSide":"right","toNode":"inserter","toSide":"left"},
+		{"id":"e10","fromNode":"belt","fromSide":"right","toNode":"green_science","toSide":"left"},
+		{"id":"e11","fromNode":"inserter","fromSide":"right","toNode":"green_science","toSide":"left"},
+		{"id":"e12","fromNode":"copper_plate","fromSide":"right","toNode":"red_science","toSide":"left"},
+		{"id":"e13","fromNode":"gear","fromSide":"right","toNode":"red_science","toSide":"left"},
+		{"id":"e14","fromNode":"red_science","fromSide":"right","toNode":"lab","toSide":"left"},
+		{"id":"e15","fromNode":"green_science","fromSide":"right","toNode":"lab","toSide":"left"}
+	]
+}
