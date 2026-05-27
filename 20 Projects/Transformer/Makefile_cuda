@@ -1,0 +1,10 @@
+CC = nvcc
+CFLAGS = -O3 -lcublas
+
+all: transformer_cuda
+
+transformer_cuda: train_cuda.cu
+	$(CC) $(CFLAGS) train_cuda.cu -o transformer_cuda
+
+clean:
+	rm -f transformer_cuda
